@@ -1,0 +1,1336 @@
+Building for platform CW308_STM32F3 with CRYPTO_TARGET=TINYAES128C
+SS_VER set to SS_VER_2_1
+SS_VER set to SS_VER_2_1
+Blank crypto options, building for AES128
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mkdir -p objdir-CW308_STM32F3 
+.
+Welcome to another exciting ChipWhisperer target build!!
+.
+.
+.
+.
+.
+Compiling:
+Compiling:
+Compiling:
+Compiling:
+-en     .././simpleserial/simpleserial.c ...
+-en     simpleserial-aes.c ...
+Compiling:
+-en     .././hal//stm32f3/stm32f3_hal_lowlevel.c ...
+-en     .././hal//stm32f3/stm32f3_hal.c ...
+-en     .././hal/hal.c ...
+.
+Compiling:
+.
+.
+.
+Compiling:
+Compiling:
+Assembling: .././hal//stm32f3/stm32f3_startup.S
+-en     .././hal//stm32f3/stm32f3_sysmem.c ...
+arm-none-eabi-gcc -c -mcpu=cortex-m4 -I. -x assembler-with-cpp -mthumb -mfloat-abi=soft -fmessage-length=0 -ffunction-sections -DF_CPU=7372800 -Wa,-gstabs,-adhlns=objdir-CW308_STM32F3/stm32f3_startup.lst -I.././simpleserial/ -I.././hal/ -I.././hal/ -I.././hal//stm32f3 -I.././hal//stm32f3/CMSIS -I.././hal//stm32f3/CMSIS/core -I.././hal//stm32f3/CMSIS/device -I.././hal//stm32f4/Legacy -I.././simpleserial/ -I.././crypto/ -I.././crypto/tiny-AES128-C .././hal//stm32f3/stm32f3_startup.S -o objdir-CW308_STM32F3/stm32f3_startup.o
+-en     .././crypto/aes-independant.c ...
+-en     .././crypto/tiny-AES128-C/aes.c ...
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+.
+LINKING:
+-en     simpleserial-aes-CW308_STM32F3.elf ...
+Memory region         Used Size  Region Size  %age Used
+             RAM:        2288 B        40 KB      5.59%
+          CCMRAM:           0 B         8 KB      0.00%
+             ROM:        6040 B       256 KB      2.30%
+-e Done!
+.
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F3.bin
+.
+arm-none-eabi-objcopy -O binary -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.bin
+Creating load file for Flash: simpleserial-aes-CW308_STM32F3.hex
+.
+arm-none-eabi-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.hex
+.
+Creating Extended Listing: simpleserial-aes-CW308_STM32F3.lss
+arm-none-eabi-objdump -h -S -z simpleserial-aes-CW308_STM32F3.elf > simpleserial-aes-CW308_STM32F3.lss
+Creating load file for EEPROM: simpleserial-aes-CW308_STM32F3.eep
+arm-none-eabi-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+--change-section-lma .eeprom=0 --no-change-warnings -O ihex simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.eep || exit 0
+Creating Symbol Table: simpleserial-aes-CW308_STM32F3.sym
+arm-none-eabi-nm -n simpleserial-aes-CW308_STM32F3.elf > simpleserial-aes-CW308_STM32F3.sym
+Size after:
+   text	   data	    bss	    dec	    hex	filename
+   5508	    532	   1764	   7804	   1e7c	simpleserial-aes-CW308_STM32F3.elf
++--------------------------------------------------------
++ Default target does full rebuild each time.
++ Specify buildtarget == allquick == to avoid full rebuild
++--------------------------------------------------------
++--------------------------------------------------------
++ Built for platform CW308T: STM32F3 Target with:
++ CRYPTO_TARGET = TINYAES128C
++ CRYPTO_OPTIONS = AES128C
++--------------------------------------------------------
+Building for platform CW308_STM32F3 with CRYPTO_TARGET=TINYAES128C
+SS_VER set to SS_VER_2_1
+SS_VER set to SS_VER_2_1
+Blank crypto options, building for AES128
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mkdir -p objdir-CW308_STM32F3 
+.
+Welcome to another exciting ChipWhisperer target build!!
+.
+.
+.
+.
+Compiling:
+Compiling:
+Compiling:
+Compiling:
+.
+-en     simpleserial-aes.c ...
+-en     .././simpleserial/simpleserial.c ...
+-en     .././hal/hal.c ...
+-en     .././hal//stm32f3/stm32f3_hal.c ...
+Compiling:
+-en     .././hal//stm32f3/stm32f3_hal_lowlevel.c ...
+.
+.
+.
+Compiling:
+Compiling:
+Compiling:
+.
+-en     .././hal//stm32f3/stm32f3_sysmem.c ...
+-en     .././crypto/tiny-AES128-C/aes.c ...
+-en     .././crypto/aes-independant.c ...
+Assembling: .././hal//stm32f3/stm32f3_startup.S
+arm-none-eabi-gcc -c -mcpu=cortex-m4 -I. -x assembler-with-cpp -mthumb -mfloat-abi=soft -fmessage-length=0 -ffunction-sections -DF_CPU=7372800 -Wa,-gstabs,-adhlns=objdir-CW308_STM32F3/stm32f3_startup.lst -I.././simpleserial/ -I.././hal/ -I.././hal/ -I.././hal//stm32f3 -I.././hal//stm32f3/CMSIS -I.././hal//stm32f3/CMSIS/core -I.././hal//stm32f3/CMSIS/device -I.././hal//stm32f4/Legacy -I.././simpleserial/ -I.././crypto/ -I.././crypto/tiny-AES128-C .././hal//stm32f3/stm32f3_startup.S -o objdir-CW308_STM32F3/stm32f3_startup.o
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+.
+LINKING:
+-en     simpleserial-aes-CW308_STM32F3.elf ...
+Memory region         Used Size  Region Size  %age Used
+             RAM:        2288 B        40 KB      5.59%
+          CCMRAM:          16 B         8 KB      0.20%
+             ROM:        6012 B       256 KB      2.29%
+-e Done!
+.
+.
+.
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F3.hex
+arm-none-eabi-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.hex
+Creating load file for Flash: simpleserial-aes-CW308_STM32F3.bin
+arm-none-eabi-objcopy -O binary -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.bin
+Creating Extended Listing: simpleserial-aes-CW308_STM32F3.lss
+Creating load file for EEPROM: simpleserial-aes-CW308_STM32F3.eep
+arm-none-eabi-objdump -h -S -z simpleserial-aes-CW308_STM32F3.elf > simpleserial-aes-CW308_STM32F3.lss
+arm-none-eabi-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+--change-section-lma .eeprom=0 --no-change-warnings -O ihex simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.eep || exit 0
+.
+Creating Symbol Table: simpleserial-aes-CW308_STM32F3.sym
+arm-none-eabi-nm -n simpleserial-aes-CW308_STM32F3.elf > simpleserial-aes-CW308_STM32F3.sym
+Size after:
+   text	   data	    bss	    dec	    hex	filename
+   5464	    548	   1764	   7776	   1e60	simpleserial-aes-CW308_STM32F3.elf
++--------------------------------------------------------
++ Default target does full rebuild each time.
++ Specify buildtarget == allquick == to avoid full rebuild
++--------------------------------------------------------
++--------------------------------------------------------
++ Built for platform CW308T: STM32F3 Target with:
++ CRYPTO_TARGET = TINYAES128C
++ CRYPTO_OPTIONS = AES128C
++--------------------------------------------------------
+Building for platform CW308_STM32F3 with CRYPTO_TARGET=TINYAES128C
+SS_VER set to SS_VER_2_1
+SS_VER set to SS_VER_2_1
+Blank crypto options, building for AES128
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mkdir -p objdir-CW308_STM32F3 
+.
+Welcome to another exciting ChipWhisperer target build!!
+.
+.
+.
+.
+Compiling:
+Compiling:
+Compiling:
+Compiling:
+-en     simpleserial-aes.c ...
+-en     .././simpleserial/simpleserial.c ...
+-en     .././hal/hal.c ...
+-en     .././hal//stm32f3/stm32f3_hal.c ...
+.
+Compiling:
+.
+.
+-en     .././hal//stm32f3/stm32f3_hal_lowlevel.c ...
+.
+Compiling:
+Compiling:
+Compiling:
+-en     .././hal//stm32f3/stm32f3_sysmem.c ...
+-en     .././crypto/tiny-AES128-C/aes.c ...
+.
+-en     .././crypto/aes-independant.c ...
+Assembling: .././hal//stm32f3/stm32f3_startup.S
+arm-none-eabi-gcc -c -mcpu=cortex-m4 -I. -x assembler-with-cpp -mthumb -mfloat-abi=soft -fmessage-length=0 -ffunction-sections -DF_CPU=7372800 -Wa,-gstabs,-adhlns=objdir-CW308_STM32F3/stm32f3_startup.lst -I.././simpleserial/ -I.././hal/ -I.././hal/ -I.././hal//stm32f3 -I.././hal//stm32f3/CMSIS -I.././hal//stm32f3/CMSIS/core -I.././hal//stm32f3/CMSIS/device -I.././hal//stm32f4/Legacy -I.././simpleserial/ -I.././crypto/ -I.././crypto/tiny-AES128-C .././hal//stm32f3/stm32f3_startup.S -o objdir-CW308_STM32F3/stm32f3_startup.o
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+.
+LINKING:
+-en     simpleserial-aes-CW308_STM32F3.elf ...
+Memory region         Used Size  Region Size  %age Used
+             RAM:        1760 B        40 KB      4.30%
+          CCMRAM:         540 B         8 KB      6.59%
+             ROM:        6012 B       256 KB      2.29%
+-e Done!
+.
+.
+.
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F3.bin
+Creating load file for Flash: simpleserial-aes-CW308_STM32F3.hex
+Creating load file for EEPROM: simpleserial-aes-CW308_STM32F3.eep
+arm-none-eabi-objcopy -O binary -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.bin
+Creating Extended Listing: simpleserial-aes-CW308_STM32F3.lss
+arm-none-eabi-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.hex
+arm-none-eabi-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+--change-section-lma .eeprom=0 --no-change-warnings -O ihex simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.eep || exit 0
+.
+arm-none-eabi-objdump -h -S -z simpleserial-aes-CW308_STM32F3.elf > simpleserial-aes-CW308_STM32F3.lss
+Creating Symbol Table: simpleserial-aes-CW308_STM32F3.sym
+arm-none-eabi-nm -n simpleserial-aes-CW308_STM32F3.elf > simpleserial-aes-CW308_STM32F3.sym
+Size after:
+   text	   data	    bss	    dec	    hex	filename
+   5464	    548	   1760	   7772	   1e5c	simpleserial-aes-CW308_STM32F3.elf
++--------------------------------------------------------
++ Default target does full rebuild each time.
++ Specify buildtarget == allquick == to avoid full rebuild
++--------------------------------------------------------
++--------------------------------------------------------
++ Built for platform CW308T: STM32F3 Target with:
++ CRYPTO_TARGET = TINYAES128C
++ CRYPTO_OPTIONS = AES128C
++--------------------------------------------------------
+Building for platform CW308_STM32F3 with CRYPTO_TARGET=TINYAES128C
+SS_VER set to SS_VER_2_1
+SS_VER set to SS_VER_2_1
+Blank crypto options, building for AES128
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mkdir -p objdir-CW308_STM32F3 
+.
+Welcome to another exciting ChipWhisperer target build!!
+.
+.
+.
+.
+Compiling:
+Compiling:
+Compiling:
+Compiling:
+.
+-en     simpleserial-aes.c ...
+-en     .././simpleserial/simpleserial.c ...
+-en     .././hal/hal.c ...
+-en     .././hal//stm32f3/stm32f3_hal.c ...
+Compiling:
+-en     .././hal//stm32f3/stm32f3_hal_lowlevel.c ...
+.
+.
+Compiling:
+.
+Compiling:
+.
+-en     .././hal//stm32f3/stm32f3_sysmem.c ...
+Compiling:
+-en     .././crypto/tiny-AES128-C/aes.c ...
+Assembling: .././hal//stm32f3/stm32f3_startup.S
+arm-none-eabi-gcc -c -mcpu=cortex-m4 -I. -x assembler-with-cpp -mthumb -mfloat-abi=soft -fmessage-length=0 -ffunction-sections -DF_CPU=7372800 -Wa,-gstabs,-adhlns=objdir-CW308_STM32F3/stm32f3_startup.lst -I.././simpleserial/ -I.././hal/ -I.././hal/ -I.././hal//stm32f3 -I.././hal//stm32f3/CMSIS -I.././hal//stm32f3/CMSIS/core -I.././hal//stm32f3/CMSIS/device -I.././hal//stm32f4/Legacy -I.././simpleserial/ -I.././crypto/ -I.././crypto/tiny-AES128-C .././hal//stm32f3/stm32f3_startup.S -o objdir-CW308_STM32F3/stm32f3_startup.o
+-en     .././crypto/aes-independant.c ...
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+.
+LINKING:
+-en     simpleserial-aes-CW308_STM32F3.elf ...
+Memory region         Used Size  Region Size  %age Used
+             RAM:        1760 B        40 KB      4.30%
+          CCMRAM:         524 B         8 KB      6.40%
+             ROM:        6040 B       256 KB      2.30%
+-e Done!
+.
+.
+.
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F3.hex
+Creating load file for Flash: simpleserial-aes-CW308_STM32F3.bin
+.
+arm-none-eabi-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.hex
+arm-none-eabi-objcopy -O binary -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.bin
+Creating load file for EEPROM: simpleserial-aes-CW308_STM32F3.eep
+arm-none-eabi-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+--change-section-lma .eeprom=0 --no-change-warnings -O ihex simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.eep || exit 0
+Creating Extended Listing: simpleserial-aes-CW308_STM32F3.lss
+arm-none-eabi-objdump -h -S -z simpleserial-aes-CW308_STM32F3.elf > simpleserial-aes-CW308_STM32F3.lss
+Creating Symbol Table: simpleserial-aes-CW308_STM32F3.sym
+arm-none-eabi-nm -n simpleserial-aes-CW308_STM32F3.elf > simpleserial-aes-CW308_STM32F3.sym
+Size after:
+   text	   data	    bss	    dec	    hex	filename
+   5508	    532	   1760	   7800	   1e78	simpleserial-aes-CW308_STM32F3.elf
++--------------------------------------------------------
++ Default target does full rebuild each time.
++ Specify buildtarget == allquick == to avoid full rebuild
++--------------------------------------------------------
++--------------------------------------------------------
++ Built for platform CW308T: STM32F3 Target with:
++ CRYPTO_TARGET = TINYAES128C
++ CRYPTO_OPTIONS = AES128C
++--------------------------------------------------------
+Building for platform CW308_STM32F3 with CRYPTO_TARGET=TINYAES128C
+SS_VER set to SS_VER_2_1
+SS_VER set to SS_VER_2_1
+Blank crypto options, building for AES128
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mkdir -p objdir-CW308_STM32F3 
+.
+Welcome to another exciting ChipWhisperer target build!!
+.
+.
+.
+.
+Compiling:
+Compiling:
+Compiling:
+Compiling:
+.
+-en     simpleserial-aes.c ...
+-en     .././simpleserial/simpleserial.c ...
+-en     .././hal/hal.c ...
+-en     .././hal//stm32f3/stm32f3_hal.c ...
+Compiling:
+-en     .././hal//stm32f3/stm32f3_hal_lowlevel.c ...
+.
+.
+.
+Compiling:
+Compiling:
+Compiling:
+.
+-en     .././hal//stm32f3/stm32f3_sysmem.c ...
+-en     .././crypto/tiny-AES128-C/aes.c ...
+-en     .././crypto/aes-independant.c ...
+Assembling: .././hal//stm32f3/stm32f3_startup.S
+arm-none-eabi-gcc -c -mcpu=cortex-m4 -I. -x assembler-with-cpp -mthumb -mfloat-abi=soft -fmessage-length=0 -ffunction-sections -DF_CPU=7372800 -Wa,-gstabs,-adhlns=objdir-CW308_STM32F3/stm32f3_startup.lst -I.././simpleserial/ -I.././hal/ -I.././hal/ -I.././hal//stm32f3 -I.././hal//stm32f3/CMSIS -I.././hal//stm32f3/CMSIS/core -I.././hal//stm32f3/CMSIS/device -I.././hal//stm32f4/Legacy -I.././simpleserial/ -I.././crypto/ -I.././crypto/tiny-AES128-C .././hal//stm32f3/stm32f3_startup.S -o objdir-CW308_STM32F3/stm32f3_startup.o
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+.
+LINKING:
+-en     simpleserial-aes-CW308_STM32F3.elf ...
+Memory region         Used Size  Region Size  %age Used
+             RAM:        2288 B        40 KB      5.59%
+          CCMRAM:           0 B         8 KB      0.00%
+             ROM:        6040 B       256 KB      2.30%
+-e Done!
+.
+.
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F3.hex
+.
+arm-none-eabi-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.hex
+Creating load file for Flash: simpleserial-aes-CW308_STM32F3.bin
+Creating load file for EEPROM: simpleserial-aes-CW308_STM32F3.eep
+arm-none-eabi-objcopy -O binary -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.bin
+Creating Extended Listing: simpleserial-aes-CW308_STM32F3.lss
+arm-none-eabi-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+--change-section-lma .eeprom=0 --no-change-warnings -O ihex simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.eep || exit 0
+.
+arm-none-eabi-objdump -h -S -z simpleserial-aes-CW308_STM32F3.elf > simpleserial-aes-CW308_STM32F3.lss
+Creating Symbol Table: simpleserial-aes-CW308_STM32F3.sym
+arm-none-eabi-nm -n simpleserial-aes-CW308_STM32F3.elf > simpleserial-aes-CW308_STM32F3.sym
+Size after:
+   text	   data	    bss	    dec	    hex	filename
+   5508	    532	   1764	   7804	   1e7c	simpleserial-aes-CW308_STM32F3.elf
++--------------------------------------------------------
++ Default target does full rebuild each time.
++ Specify buildtarget == allquick == to avoid full rebuild
++--------------------------------------------------------
++--------------------------------------------------------
++ Built for platform CW308T: STM32F3 Target with:
++ CRYPTO_TARGET = TINYAES128C
++ CRYPTO_OPTIONS = AES128C
++--------------------------------------------------------
+Building for platform CW308_STM32F3 with CRYPTO_TARGET=TINYAES128C
+SS_VER set to SS_VER_2_1
+SS_VER set to SS_VER_2_1
+Blank crypto options, building for AES128
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mkdir -p objdir-CW308_STM32F3 
+.
+Welcome to another exciting ChipWhisperer target build!!
+.
+.
+.
+.
+Compiling:
+Compiling:
+Compiling:
+Compiling:
+-en     simpleserial-aes.c ...
+.
+-en     .././simpleserial/simpleserial.c ...
+-en     .././hal/hal.c ...
+-en     .././hal//stm32f3/stm32f3_hal.c ...
+Compiling:
+-en     .././hal//stm32f3/stm32f3_hal_lowlevel.c ...
+.
+.
+Compiling:
+.
+Compiling:
+.
+-en     .././hal//stm32f3/stm32f3_sysmem.c ...
+Compiling:
+-en     .././crypto/tiny-AES128-C/aes.c ...
+Assembling: .././hal//stm32f3/stm32f3_startup.S
+arm-none-eabi-gcc -c -mcpu=cortex-m4 -I. -x assembler-with-cpp -mthumb -mfloat-abi=soft -fmessage-length=0 -ffunction-sections -DF_CPU=7372800 -Wa,-gstabs,-adhlns=objdir-CW308_STM32F3/stm32f3_startup.lst -I.././simpleserial/ -I.././hal/ -I.././hal/ -I.././hal//stm32f3 -I.././hal//stm32f3/CMSIS -I.././hal//stm32f3/CMSIS/core -I.././hal//stm32f3/CMSIS/device -I.././hal//stm32f4/Legacy -I.././simpleserial/ -I.././crypto/ -I.././crypto/tiny-AES128-C .././hal//stm32f3/stm32f3_startup.S -o objdir-CW308_STM32F3/stm32f3_startup.o
+-en     .././crypto/aes-independant.c ...
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+.
+LINKING:
+-en     simpleserial-aes-CW308_STM32F3.elf ...
+Memory region         Used Size  Region Size  %age Used
+             RAM:        2288 B        40 KB      5.59%
+          CCMRAM:          16 B         8 KB      0.20%
+             ROM:        6012 B       256 KB      2.29%
+-e Done!
+.
+.
+.
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F3.bin
+Creating load file for Flash: simpleserial-aes-CW308_STM32F3.hex
+arm-none-eabi-objcopy -O binary -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.bin
+Creating Extended Listing: simpleserial-aes-CW308_STM32F3.lss
+arm-none-eabi-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.hex
+arm-none-eabi-objdump -h -S -z simpleserial-aes-CW308_STM32F3.elf > simpleserial-aes-CW308_STM32F3.lss
+Creating load file for EEPROM: simpleserial-aes-CW308_STM32F3.eep
+.
+arm-none-eabi-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+--change-section-lma .eeprom=0 --no-change-warnings -O ihex simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.eep || exit 0
+Creating Symbol Table: simpleserial-aes-CW308_STM32F3.sym
+arm-none-eabi-nm -n simpleserial-aes-CW308_STM32F3.elf > simpleserial-aes-CW308_STM32F3.sym
+Size after:
+   text	   data	    bss	    dec	    hex	filename
+   5464	    548	   1764	   7776	   1e60	simpleserial-aes-CW308_STM32F3.elf
++--------------------------------------------------------
++ Default target does full rebuild each time.
++ Specify buildtarget == allquick == to avoid full rebuild
++--------------------------------------------------------
++--------------------------------------------------------
++ Built for platform CW308T: STM32F3 Target with:
++ CRYPTO_TARGET = TINYAES128C
++ CRYPTO_OPTIONS = AES128C
++--------------------------------------------------------
+Building for platform CW308_STM32F3 with CRYPTO_TARGET=TINYAES128C
+SS_VER set to SS_VER_2_1
+SS_VER set to SS_VER_2_1
+Blank crypto options, building for AES128
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mkdir -p objdir-CW308_STM32F3 
+.
+Welcome to another exciting ChipWhisperer target build!!
+.
+.
+.
+.
+Compiling:
+Compiling:
+Compiling:
+Compiling:
+-en     simpleserial-aes.c ...
+-en     .././simpleserial/simpleserial.c ...
+-en     .././hal/hal.c ...
+-en     .././hal//stm32f3/stm32f3_hal.c ...
+.
+Compiling:
+.
+.
+.
+-en     .././hal//stm32f3/stm32f3_hal_lowlevel.c ...
+Compiling:
+Compiling:
+Compiling:
+-en     .././hal//stm32f3/stm32f3_sysmem.c ...
+-en     .././crypto/tiny-AES128-C/aes.c ...
+-en     .././crypto/aes-independant.c ...
+.
+Assembling: .././hal//stm32f3/stm32f3_startup.S
+arm-none-eabi-gcc -c -mcpu=cortex-m4 -I. -x assembler-with-cpp -mthumb -mfloat-abi=soft -fmessage-length=0 -ffunction-sections -DF_CPU=7372800 -Wa,-gstabs,-adhlns=objdir-CW308_STM32F3/stm32f3_startup.lst -I.././simpleserial/ -I.././hal/ -I.././hal/ -I.././hal//stm32f3 -I.././hal//stm32f3/CMSIS -I.././hal//stm32f3/CMSIS/core -I.././hal//stm32f3/CMSIS/device -I.././hal//stm32f4/Legacy -I.././simpleserial/ -I.././crypto/ -I.././crypto/tiny-AES128-C .././hal//stm32f3/stm32f3_startup.S -o objdir-CW308_STM32F3/stm32f3_startup.o
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+.
+LINKING:
+-en     simpleserial-aes-CW308_STM32F3.elf ...
+Memory region         Used Size  Region Size  %age Used
+             RAM:        1760 B        40 KB      4.30%
+          CCMRAM:         524 B         8 KB      6.40%
+             ROM:        6040 B       256 KB      2.30%
+-e Done!
+.
+.
+.
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F3.hex
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F3.bin
+arm-none-eabi-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.hex
+Creating load file for EEPROM: simpleserial-aes-CW308_STM32F3.eep
+arm-none-eabi-objcopy -O binary -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.bin
+arm-none-eabi-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+--change-section-lma .eeprom=0 --no-change-warnings -O ihex simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.eep || exit 0
+Creating Extended Listing: simpleserial-aes-CW308_STM32F3.lss
+arm-none-eabi-objdump -h -S -z simpleserial-aes-CW308_STM32F3.elf > simpleserial-aes-CW308_STM32F3.lss
+Creating Symbol Table: simpleserial-aes-CW308_STM32F3.sym
+arm-none-eabi-nm -n simpleserial-aes-CW308_STM32F3.elf > simpleserial-aes-CW308_STM32F3.sym
+Size after:
+   text	   data	    bss	    dec	    hex	filename
+   5508	    532	   1760	   7800	   1e78	simpleserial-aes-CW308_STM32F3.elf
++--------------------------------------------------------
++ Default target does full rebuild each time.
++ Specify buildtarget == allquick == to avoid full rebuild
++--------------------------------------------------------
++--------------------------------------------------------
++ Built for platform CW308T: STM32F3 Target with:
++ CRYPTO_TARGET = TINYAES128C
++ CRYPTO_OPTIONS = AES128C
++--------------------------------------------------------
+Building for platform CW308_STM32F3 with CRYPTO_TARGET=TINYAES128C
+SS_VER set to SS_VER_2_1
+SS_VER set to SS_VER_2_1
+Blank crypto options, building for AES128
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mkdir -p objdir-CW308_STM32F3 
+.
+Welcome to another exciting ChipWhisperer target build!!
+.
+.
+.
+Compiling:
+.
+Compiling:
+Compiling:
+.
+Compiling:
+-en     simpleserial-aes.c ...
+Compiling:
+-en     .././hal/hal.c ...
+-en     .././simpleserial/simpleserial.c ...
+-en     .././hal//stm32f3/stm32f3_hal.c ...
+-en     .././hal//stm32f3/stm32f3_hal_lowlevel.c ...
+.
+.
+Compiling:
+.
+Compiling:
+-en     .././crypto/tiny-AES128-C/aes.c ...
+Compiling:
+.
+-en     .././crypto/aes-independant.c ...
+-en     .././hal//stm32f3/stm32f3_sysmem.c ...
+Assembling: .././hal//stm32f3/stm32f3_startup.S
+arm-none-eabi-gcc -c -mcpu=cortex-m4 -I. -x assembler-with-cpp -mthumb -mfloat-abi=soft -fmessage-length=0 -ffunction-sections -DF_CPU=7372800 -Wa,-gstabs,-adhlns=objdir-CW308_STM32F3/stm32f3_startup.lst -I.././simpleserial/ -I.././hal/ -I.././hal/ -I.././hal//stm32f3 -I.././hal//stm32f3/CMSIS -I.././hal//stm32f3/CMSIS/core -I.././hal//stm32f3/CMSIS/device -I.././hal//stm32f4/Legacy -I.././simpleserial/ -I.././crypto/ -I.././crypto/tiny-AES128-C .././hal//stm32f3/stm32f3_startup.S -o objdir-CW308_STM32F3/stm32f3_startup.o
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+.
+LINKING:
+-en     simpleserial-aes-CW308_STM32F3.elf ...
+Memory region         Used Size  Region Size  %age Used
+             RAM:        1760 B        40 KB      4.30%
+          CCMRAM:         540 B         8 KB      6.59%
+             ROM:        6012 B       256 KB      2.29%
+-e Done!
+.
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F3.hex
+arm-none-eabi-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.hex
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F3.bin
+arm-none-eabi-objcopy -O binary -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.bin
+Creating load file for EEPROM: simpleserial-aes-CW308_STM32F3.eep
+arm-none-eabi-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+--change-section-lma .eeprom=0 --no-change-warnings -O ihex simpleserial-aes-CW308_STM32F3.elf simpleserial-aes-CW308_STM32F3.eep || exit 0
+.
+.
+Creating Extended Listing: simpleserial-aes-CW308_STM32F3.lss
+arm-none-eabi-objdump -h -S -z simpleserial-aes-CW308_STM32F3.elf > simpleserial-aes-CW308_STM32F3.lss
+Creating Symbol Table: simpleserial-aes-CW308_STM32F3.sym
+arm-none-eabi-nm -n simpleserial-aes-CW308_STM32F3.elf > simpleserial-aes-CW308_STM32F3.sym
+Size after:
+   text	   data	    bss	    dec	    hex	filename
+   5464	    548	   1760	   7772	   1e5c	simpleserial-aes-CW308_STM32F3.elf
++--------------------------------------------------------
++ Default target does full rebuild each time.
++ Specify buildtarget == allquick == to avoid full rebuild
++--------------------------------------------------------
++--------------------------------------------------------
++ Built for platform CW308T: STM32F3 Target with:
++ CRYPTO_TARGET = TINYAES128C
++ CRYPTO_OPTIONS = AES128C
++--------------------------------------------------------
+[MODE] Attaque sélectionnée : DPA
+
+============================================================
+  PHASE 1 : COMPILATION (une seule fois par config)
+============================================================
+
+[COMPILE] Nettoyage : make PLATFORM=CW308_STM32F3 clean
+[COMPILE] Build : make PLATFORM=CW308_STM32F3 CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1 -j
+[COMPILE] OK
+[COMPILE] Binaire configA sauvegardé : /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F3_configA.hex
+
+[COMPILE] Nettoyage : make PLATFORM=CW308_STM32F3 clean
+[COMPILE] Build : make PLATFORM=CW308_STM32F3 CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1 EXTRA_OPTS="USE_CCM_KEY" -j
+[COMPILE] OK
+[COMPILE] Binaire configB sauvegardé : /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F3_configB.hex
+
+[COMPILE] Nettoyage : make PLATFORM=CW308_STM32F3 clean
+[COMPILE] Build : make PLATFORM=CW308_STM32F3 CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1 EXTRA_OPTS="USE_CCM" -j
+[COMPILE] OK
+[COMPILE] Binaire configC sauvegardé : /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F3_configC.hex
+
+[COMPILE] Nettoyage : make PLATFORM=CW308_STM32F3 clean
+[COMPILE] Build : make PLATFORM=CW308_STM32F3 CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1 EXTRA_OPTS="USE_CCM_SBOX" -j
+[COMPILE] OK
+[COMPILE] Binaire configD sauvegardé : /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F3_configD.hex
+
+[COMPILE] Nettoyage : make PLATFORM=CW308_STM32F3 clean
+[COMPILE] Build : make PLATFORM=CW308_STM32F3 CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1 EXTRA_OPTS="USE_CCM_STACK -Wl,--defsym=_estack=0x10002000" -j
+[COMPILE] OK
+[COMPILE] Binaire configE sauvegardé : /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F3_configE.hex
+
+[COMPILE] Nettoyage : make PLATFORM=CW308_STM32F3 clean
+[COMPILE] Build : make PLATFORM=CW308_STM32F3 CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1 EXTRA_OPTS="USE_CCM_KEY -DUSE_CCM_STACK -Wl,--defsym=_estack=0x10002000" -j
+[COMPILE] OK
+[COMPILE] Binaire configF sauvegardé : /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F3_configF.hex
+
+[COMPILE] Nettoyage : make PLATFORM=CW308_STM32F3 clean
+[COMPILE] Build : make PLATFORM=CW308_STM32F3 CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1 EXTRA_OPTS="USE_CCM_SBOX -DUSE_CCM_STACK -Wl,--defsym=_estack=0x10002000" -j
+[COMPILE] OK
+[COMPILE] Binaire configG sauvegardé : /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F3_configG.hex
+
+[COMPILE] Nettoyage : make PLATFORM=CW308_STM32F3 clean
+[COMPILE] Build : make PLATFORM=CW308_STM32F3 CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1 EXTRA_OPTS="USE_CCM -DUSE_CCM_STACK -Wl,--defsym=_estack=0x10002000" -j
+[COMPILE] OK
+[COMPILE] Binaire configH sauvegardé : /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F3_configH.hex
+
+============================================================
+  PHASE 2 : CONNEXION SCOPE
+============================================================
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 6807036                   to 20305595                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 29538459                  to 29538471                 
+scope.clock.adc_rate                     changed from 29538459.0                to 29538471.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+[SCOPE] Connecté. Gain=45, Samples=5000
+------------ATTACK------------------- DPA
+
+───────────────────────────────────────────────────────
+  RUN 1/5  (seed=43)
+───────────────────────────────────────────────────────
+
+  [A] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=43 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config A: ✅  corr=0.0343  min_traces=58
+
+  [B] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=43 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config B: ✅  corr=0.0355  min_traces=58
+
+  [C] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=43 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config C: ✅  corr=0.0324  min_traces=44
+
+  [D] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=43 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config D: ✅  corr=0.0329  min_traces=54
+
+  [E] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=43 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config E: ✅  corr=0.0355  min_traces=50
+
+  [F] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=43 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config F: ✅  corr=0.0348  min_traces=56
+
+  [G] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=43 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config G: ✅  corr=0.0331  min_traces=50
+
+  [H] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=43 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config H: ✅  corr=0.0326  min_traces=46
+
+───────────────────────────────────────────────────────
+  RUN 2/5  (seed=44)
+───────────────────────────────────────────────────────
+
+  [A] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=44 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config A: ✅  corr=0.0344  min_traces=58
+
+  [B] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=44 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config B: ✅  corr=0.0359  min_traces=48
+
+  [C] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=44 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config C: ✅  corr=0.0317  min_traces=48
+
+  [D] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=44 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config D: ✅  corr=0.0321  min_traces=50
+
+  [E] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=44 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config E: ✅  corr=0.0346  min_traces=46
+
+  [F] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=44 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config F: ✅  corr=0.0364  min_traces=56
+
+  [G] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=44 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config G: ✅  corr=0.0320  min_traces=50
+
+  [H] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=44 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config H: ✅  corr=0.0316  min_traces=48
+
+───────────────────────────────────────────────────────
+  RUN 3/5  (seed=45)
+───────────────────────────────────────────────────────
+
+  [A] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=45 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config A: ✅  corr=0.0354  min_traces=50
+
+  [B] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=45 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config B: ✅  corr=0.0356  min_traces=52
+
+  [C] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=45 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config C: ✅  corr=0.0315  min_traces=44
+
+  [D] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=45 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config D: ✅  corr=0.0321  min_traces=54
+
+  [E] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=45 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config E: ✅  corr=0.0346  min_traces=70
+
+  [F] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=45 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config F: ✅  corr=0.0362  min_traces=58
+
+  [G] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=45 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config G: ✅  corr=0.0320  min_traces=60
+
+  [H] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=45 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config H: ✅  corr=0.0317  min_traces=60
+
+───────────────────────────────────────────────────────
+  RUN 4/5  (seed=46)
+───────────────────────────────────────────────────────
+
+  [A] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=46 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config A: ✅  corr=0.0353  min_traces=60
+
+  [B] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=46 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config B: ✅  corr=0.0371  min_traces=48
+
+  [C] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=46 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config C: ✅  corr=0.0324  min_traces=54
+
+  [D] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=46 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config D: ✅  corr=0.0328  min_traces=58
+
+  [E] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=46 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config E: ✅  corr=0.0358  min_traces=56
+
+  [F] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=46 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config F: ✅  corr=0.0362  min_traces=44
+
+  [G] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=46 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config G: ✅  corr=0.0336  min_traces=46
+
+  [H] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=46 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config H: ✅  corr=0.0321  min_traces=50
+
+───────────────────────────────────────────────────────
+  RUN 5/5  (seed=47)
+───────────────────────────────────────────────────────
+
+  [A] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=47 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config A: ✅  corr=0.0353  min_traces=56
+
+  [B] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=47 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config B: ✅  corr=0.0370  min_traces=56
+
+  [C] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=47 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config C: ✅  corr=0.0325  min_traces=46
+
+  [D] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=47 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config D: ✅  corr=0.0335  min_traces=58
+
+  [E] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=47 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config E: ✅  corr=0.0352  min_traces=58
+
+  [F] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=47 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config F: ✅  corr=0.0363  min_traces=60
+
+  [G] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6039 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6039 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=47 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config G: ✅  corr=0.0331  min_traces=60
+
+  [H] Flash + Capture...
+Detected known STMF32: STM32F302xB(C)/303xB(C)
+Extended erase (0x44), this can take ten seconds or more
+Attempting to program 6011 bytes at 0x8000000
+STM32F Programming flash...
+STM32F Reading flash...
+Verified flash OK, 6011 bytes
+[FLASH] CW308_STM32F3 → OK
+[CAPTURE] Seed=47 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config H: ✅  corr=0.0323  min_traces=50
+
+[INFO] Scope déconnecté.
+
+============================================================
+  RÉSUMÉ FINAL — Moyenne sur 5 runs (CW308_STM32F3)
+============================================================
+Config         OK     Corr moy   Moy traces    Min    Max
+-------------------------------------------------------
+  Config A        5/5       0.0349         56.4     50     60
+[PLOT] Guessing Entropy sauvegardé : /home/amine/Documents/s8/stage/cpa_scripts/results/guessing_entropy_dpa_CW308_STM32F3_configA.png
+  Config B        5/5       0.0362         52.4     48     58
+[PLOT] Guessing Entropy sauvegardé : /home/amine/Documents/s8/stage/cpa_scripts/results/guessing_entropy_dpa_CW308_STM32F3_configB.png
+  Config C        5/5       0.0321         47.2     44     54
+[PLOT] Guessing Entropy sauvegardé : /home/amine/Documents/s8/stage/cpa_scripts/results/guessing_entropy_dpa_CW308_STM32F3_configC.png
+  Config D        5/5       0.0327         54.8     50     58
+[PLOT] Guessing Entropy sauvegardé : /home/amine/Documents/s8/stage/cpa_scripts/results/guessing_entropy_dpa_CW308_STM32F3_configD.png
+  Config E        5/5       0.0352         56.0     46     70
+[PLOT] Guessing Entropy sauvegardé : /home/amine/Documents/s8/stage/cpa_scripts/results/guessing_entropy_dpa_CW308_STM32F3_configE.png
+  Config F        5/5       0.0360         54.8     44     60
+[PLOT] Guessing Entropy sauvegardé : /home/amine/Documents/s8/stage/cpa_scripts/results/guessing_entropy_dpa_CW308_STM32F3_configF.png
+  Config G        5/5       0.0328         53.2     46     60
+[PLOT] Guessing Entropy sauvegardé : /home/amine/Documents/s8/stage/cpa_scripts/results/guessing_entropy_dpa_CW308_STM32F3_configG.png
+  Config H        5/5       0.0321         50.8     46     60
+[PLOT] Guessing Entropy sauvegardé : /home/amine/Documents/s8/stage/cpa_scripts/results/guessing_entropy_dpa_CW308_STM32F3_configH.png
+
+[PLOT] Guessing Entropy comparaison : /home/amine/Documents/s8/stage/cpa_scripts/results/guessing_entropy_comparison_dpa_CW308_STM32F3.png
+============================================================

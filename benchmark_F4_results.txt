@@ -1,0 +1,1046 @@
+Building for platform CW308_STM32F4 with CRYPTO_TARGET=TINYAES128C
+SS_VER set to SS_VER_2_1
+SS_VER set to SS_VER_2_1
+Blank crypto options, building for AES128
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mkdir -p objdir-CW308_STM32F4 
+.
+Welcome to another exciting ChipWhisperer target build!!
+.
+.
+Compiling:
+.
+.
+.
+-en     simpleserial-aes.c ...
+Compiling:
+Compiling:
+Compiling:
+Compiling:
+.
+-en     .././simpleserial/simpleserial.c ...
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_hal.c ...
+-en     .././hal/hal.c ...
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_hal_lowlevel.c ...
+Compiling:
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_sysmem.c ...
+.
+.
+Compiling:
+Compiling:
+.
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4xx_hal_rng.c ...
+-en     .././crypto/tiny-AES128-C/aes.c ...
+.
+Compiling:
+Assembling: .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_startup.S
+arm-none-eabi-gcc -c -mcpu=cortex-m4 -I. -x assembler-with-cpp -mthumb -mfloat-abi=soft -fmessage-length=0 -ffunction-sections -DF_CPU=7372800 -Wa,-gstabs,-adhlns=objdir-CW308_STM32F4/stm32f4_startup.lst -I.././simpleserial/ -I.././hal/chipwhisperer-fw-extra -I.././hal/ -I.././hal/chipwhisperer-fw-extra/stm32f4 -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS/core -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS/device -I.././hal/chipwhisperer-fw-extra/stm32f4/Legacy -I.././simpleserial/ -I.././crypto/ -I.././crypto/tiny-AES128-C .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_startup.S -o objdir-CW308_STM32F4/stm32f4_startup.o
+-en     .././crypto/aes-independant.c ...
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+.
+LINKING:
+-en     simpleserial-aes-CW308_STM32F4.elf ...
+Memory region         Used Size  Region Size  %age Used
+             RAM:        2728 B       128 KB      2.08%
+          CCMRAM:           0 B        64 KB      0.00%
+             ROM:        5476 B         1 MB      0.52%
+-e Done!
+.
+.
+.
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F4.bin
+Creating load file for EEPROM: simpleserial-aes-CW308_STM32F4.eep
+arm-none-eabi-objcopy -O binary -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.bin
+.
+arm-none-eabi-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+--change-section-lma .eeprom=0 --no-change-warnings -O ihex simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.eep || exit 0
+Creating Extended Listing: simpleserial-aes-CW308_STM32F4.lss
+arm-none-eabi-objdump -h -S -z simpleserial-aes-CW308_STM32F4.elf > simpleserial-aes-CW308_STM32F4.lss
+Creating load file for Flash: simpleserial-aes-CW308_STM32F4.hex
+arm-none-eabi-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.hex
+Creating Symbol Table: simpleserial-aes-CW308_STM32F4.sym
+arm-none-eabi-nm -n simpleserial-aes-CW308_STM32F4.elf > simpleserial-aes-CW308_STM32F4.sym
+Size after:
+   text	   data	    bss	    dec	    hex	filename
+   4940	    536	   2204	   7680	   1e00	simpleserial-aes-CW308_STM32F4.elf
++--------------------------------------------------------
++ Default target does full rebuild each time.
++ Specify buildtarget == allquick == to avoid full rebuild
++--------------------------------------------------------
++--------------------------------------------------------
++ Built for platform CW308T: STM32F4 Target with:
++ CRYPTO_TARGET = TINYAES128C
++ CRYPTO_OPTIONS = AES128C
++--------------------------------------------------------
+Building for platform CW308_STM32F4 with CRYPTO_TARGET=TINYAES128C
+SS_VER set to SS_VER_2_1
+SS_VER set to SS_VER_2_1
+Blank crypto options, building for AES128
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mkdir -p objdir-CW308_STM32F4 
+.
+Welcome to another exciting ChipWhisperer target build!!
+.
+.
+.
+.
+Compiling:
+Compiling:
+Compiling:
+Compiling:
+-en     simpleserial-aes.c ...
+-en     .././simpleserial/simpleserial.c ...
+.
+-en     .././hal/hal.c ...
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_hal.c ...
+Compiling:
+.
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_hal_lowlevel.c ...
+.
+Compiling:
+.
+Compiling:
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_sysmem.c ...
+Compiling:
+.
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4xx_hal_rng.c ...
+-en     .././crypto/tiny-AES128-C/aes.c ...
+Compiling:
+.
+-en     .././crypto/aes-independant.c ...
+Assembling: .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_startup.S
+arm-none-eabi-gcc -c -mcpu=cortex-m4 -I. -x assembler-with-cpp -mthumb -mfloat-abi=soft -fmessage-length=0 -ffunction-sections -DF_CPU=7372800 -Wa,-gstabs,-adhlns=objdir-CW308_STM32F4/stm32f4_startup.lst -I.././simpleserial/ -I.././hal/chipwhisperer-fw-extra -I.././hal/ -I.././hal/chipwhisperer-fw-extra/stm32f4 -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS/core -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS/device -I.././hal/chipwhisperer-fw-extra/stm32f4/Legacy -I.././simpleserial/ -I.././crypto/ -I.././crypto/tiny-AES128-C .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_startup.S -o objdir-CW308_STM32F4/stm32f4_startup.o
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+.
+LINKING:
+-en     simpleserial-aes-CW308_STM32F4.elf ...
+Memory region         Used Size  Region Size  %age Used
+             RAM:        2728 B       128 KB      2.08%
+          CCMRAM:          16 B        64 KB      0.02%
+             ROM:        5448 B         1 MB      0.52%
+-e Done!
+.
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F4.hex
+.
+arm-none-eabi-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.hex
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F4.bin
+Creating Extended Listing: simpleserial-aes-CW308_STM32F4.lss
+arm-none-eabi-objcopy -O binary -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.bin
+Creating load file for EEPROM: simpleserial-aes-CW308_STM32F4.eep
+arm-none-eabi-objdump -h -S -z simpleserial-aes-CW308_STM32F4.elf > simpleserial-aes-CW308_STM32F4.lss
+.
+arm-none-eabi-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+--change-section-lma .eeprom=0 --no-change-warnings -O ihex simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.eep || exit 0
+Creating Symbol Table: simpleserial-aes-CW308_STM32F4.sym
+arm-none-eabi-nm -n simpleserial-aes-CW308_STM32F4.elf > simpleserial-aes-CW308_STM32F4.sym
+Size after:
+   text	   data	    bss	    dec	    hex	filename
+   4896	    552	   2204	   7652	   1de4	simpleserial-aes-CW308_STM32F4.elf
++--------------------------------------------------------
++ Default target does full rebuild each time.
++ Specify buildtarget == allquick == to avoid full rebuild
++--------------------------------------------------------
++--------------------------------------------------------
++ Built for platform CW308T: STM32F4 Target with:
++ CRYPTO_TARGET = TINYAES128C
++ CRYPTO_OPTIONS = AES128C
++--------------------------------------------------------
+Building for platform CW308_STM32F4 with CRYPTO_TARGET=TINYAES128C
+SS_VER set to SS_VER_2_1
+SS_VER set to SS_VER_2_1
+Blank crypto options, building for AES128
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mkdir -p objdir-CW308_STM32F4 
+.
+Welcome to another exciting ChipWhisperer target build!!
+.
+.
+Compiling:
+.
+.
+.
+Compiling:
+Compiling:
+-en     simpleserial-aes.c ...
+Compiling:
+Compiling:
+.
+-en     .././hal/hal.c ...
+-en     .././simpleserial/simpleserial.c ...
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_hal_lowlevel.c ...
+Compiling:
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_hal.c ...
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_sysmem.c ...
+.
+.
+Compiling:
+.
+Compiling:
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4xx_hal_rng.c ...
+-en     .././crypto/tiny-AES128-C/aes.c ...
+Compiling:
+.
+-en     .././crypto/aes-independant.c ...
+Assembling: .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_startup.S
+arm-none-eabi-gcc -c -mcpu=cortex-m4 -I. -x assembler-with-cpp -mthumb -mfloat-abi=soft -fmessage-length=0 -ffunction-sections -DF_CPU=7372800 -Wa,-gstabs,-adhlns=objdir-CW308_STM32F4/stm32f4_startup.lst -I.././simpleserial/ -I.././hal/chipwhisperer-fw-extra -I.././hal/ -I.././hal/chipwhisperer-fw-extra/stm32f4 -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS/core -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS/device -I.././hal/chipwhisperer-fw-extra/stm32f4/Legacy -I.././simpleserial/ -I.././crypto/ -I.././crypto/tiny-AES128-C .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_startup.S -o objdir-CW308_STM32F4/stm32f4_startup.o
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+.
+LINKING:
+-en     simpleserial-aes-CW308_STM32F4.elf ...
+Memory region         Used Size  Region Size  %age Used
+             RAM:        2208 B       128 KB      1.68%
+          CCMRAM:         540 B        64 KB      0.82%
+             ROM:        5448 B         1 MB      0.52%
+-e Done!
+.
+.
+.
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F4.bin
+Creating load file for Flash: simpleserial-aes-CW308_STM32F4.hex
+arm-none-eabi-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.hex
+Creating Extended Listing: simpleserial-aes-CW308_STM32F4.lss
+Creating load file for EEPROM: simpleserial-aes-CW308_STM32F4.eep
+arm-none-eabi-objcopy -O binary -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.bin
+.
+arm-none-eabi-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+--change-section-lma .eeprom=0 --no-change-warnings -O ihex simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.eep || exit 0
+arm-none-eabi-objdump -h -S -z simpleserial-aes-CW308_STM32F4.elf > simpleserial-aes-CW308_STM32F4.lss
+Creating Symbol Table: simpleserial-aes-CW308_STM32F4.sym
+arm-none-eabi-nm -n simpleserial-aes-CW308_STM32F4.elf > simpleserial-aes-CW308_STM32F4.sym
+Size after:
+   text	   data	    bss	    dec	    hex	filename
+   4896	    552	   2208	   7656	   1de8	simpleserial-aes-CW308_STM32F4.elf
++--------------------------------------------------------
++ Default target does full rebuild each time.
++ Specify buildtarget == allquick == to avoid full rebuild
++--------------------------------------------------------
++--------------------------------------------------------
++ Built for platform CW308T: STM32F4 Target with:
++ CRYPTO_TARGET = TINYAES128C
++ CRYPTO_OPTIONS = AES128C
++--------------------------------------------------------
+Building for platform CW308_STM32F4 with CRYPTO_TARGET=TINYAES128C
+SS_VER set to SS_VER_2_1
+SS_VER set to SS_VER_2_1
+Blank crypto options, building for AES128
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mkdir -p objdir-CW308_STM32F4 
+.
+Welcome to another exciting ChipWhisperer target build!!
+.
+.
+.
+.
+Compiling:
+Compiling:
+.
+Compiling:
+Compiling:
+-en     simpleserial-aes.c ...
+-en     .././simpleserial/simpleserial.c ...
+Compiling:
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_hal.c ...
+-en     .././hal/hal.c ...
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_hal_lowlevel.c ...
+.
+.
+Compiling:
+.
+Compiling:
+.
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_sysmem.c ...
+Compiling:
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4xx_hal_rng.c ...
+Compiling:
+-en     .././crypto/tiny-AES128-C/aes.c ...
+-en     .././crypto/aes-independant.c ...
+.
+Assembling: .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_startup.S
+arm-none-eabi-gcc -c -mcpu=cortex-m4 -I. -x assembler-with-cpp -mthumb -mfloat-abi=soft -fmessage-length=0 -ffunction-sections -DF_CPU=7372800 -Wa,-gstabs,-adhlns=objdir-CW308_STM32F4/stm32f4_startup.lst -I.././simpleserial/ -I.././hal/chipwhisperer-fw-extra -I.././hal/ -I.././hal/chipwhisperer-fw-extra/stm32f4 -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS/core -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS/device -I.././hal/chipwhisperer-fw-extra/stm32f4/Legacy -I.././simpleserial/ -I.././crypto/ -I.././crypto/tiny-AES128-C .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_startup.S -o objdir-CW308_STM32F4/stm32f4_startup.o
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+.
+LINKING:
+-en     simpleserial-aes-CW308_STM32F4.elf ...
+Memory region         Used Size  Region Size  %age Used
+             RAM:        2208 B       128 KB      1.68%
+          CCMRAM:         524 B        64 KB      0.80%
+             ROM:        5476 B         1 MB      0.52%
+-e Done!
+.
+.
+.
+.
+Creating Extended Listing: simpleserial-aes-CW308_STM32F4.lss
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F4.hex
+arm-none-eabi-objdump -h -S -z simpleserial-aes-CW308_STM32F4.elf > simpleserial-aes-CW308_STM32F4.lss
+Creating load file for Flash: simpleserial-aes-CW308_STM32F4.bin
+Creating load file for EEPROM: simpleserial-aes-CW308_STM32F4.eep
+arm-none-eabi-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.hex
+arm-none-eabi-objcopy -O binary -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.bin
+arm-none-eabi-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+--change-section-lma .eeprom=0 --no-change-warnings -O ihex simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.eep || exit 0
+Creating Symbol Table: simpleserial-aes-CW308_STM32F4.sym
+arm-none-eabi-nm -n simpleserial-aes-CW308_STM32F4.elf > simpleserial-aes-CW308_STM32F4.sym
+Size after:
+   text	   data	    bss	    dec	    hex	filename
+   4940	    536	   2208	   7684	   1e04	simpleserial-aes-CW308_STM32F4.elf
++--------------------------------------------------------
++ Default target does full rebuild each time.
++ Specify buildtarget == allquick == to avoid full rebuild
++--------------------------------------------------------
++--------------------------------------------------------
++ Built for platform CW308T: STM32F4 Target with:
++ CRYPTO_TARGET = TINYAES128C
++ CRYPTO_OPTIONS = AES128C
++--------------------------------------------------------
+Building for platform CW308_STM32F4 with CRYPTO_TARGET=TINYAES128C
+SS_VER set to SS_VER_2_1
+SS_VER set to SS_VER_2_1
+Blank crypto options, building for AES128
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mkdir -p objdir-CW308_STM32F4 
+.
+Welcome to another exciting ChipWhisperer target build!!
+.
+.
+.
+Compiling:
+Compiling:
+.
+.
+-en     simpleserial-aes.c ...
+Compiling:
+Compiling:
+-en     .././hal/hal.c ...
+Compiling:
+-en     .././simpleserial/simpleserial.c ...
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_hal.c ...
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_hal_lowlevel.c ...
+.
+Compiling:
+.
+.
+.
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_sysmem.c ...
+Compiling:
+Compiling:
+Compiling:
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4xx_hal_rng.c ...
+-en     .././crypto/tiny-AES128-C/aes.c ...
+-en     .././crypto/aes-independant.c ...
+.
+Assembling: .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_startup.S
+arm-none-eabi-gcc -c -mcpu=cortex-m4 -I. -x assembler-with-cpp -mthumb -mfloat-abi=soft -fmessage-length=0 -ffunction-sections -DF_CPU=7372800 -Wa,-gstabs,-adhlns=objdir-CW308_STM32F4/stm32f4_startup.lst -I.././simpleserial/ -I.././hal/chipwhisperer-fw-extra -I.././hal/ -I.././hal/chipwhisperer-fw-extra/stm32f4 -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS/core -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS/device -I.././hal/chipwhisperer-fw-extra/stm32f4/Legacy -I.././simpleserial/ -I.././crypto/ -I.././crypto/tiny-AES128-C .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_startup.S -o objdir-CW308_STM32F4/stm32f4_startup.o
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+.
+LINKING:
+-en     simpleserial-aes-CW308_STM32F4.elf ...
+Memory region         Used Size  Region Size  %age Used
+             RAM:        2728 B       128 KB      2.08%
+          CCMRAM:           0 B        64 KB      0.00%
+             ROM:        5476 B         1 MB      0.52%
+-e Done!
+.
+.
+.
+.
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F4.hex
+Creating load file for Flash: simpleserial-aes-CW308_STM32F4.bin
+arm-none-eabi-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.hex
+Creating load file for EEPROM: simpleserial-aes-CW308_STM32F4.eep
+arm-none-eabi-objcopy -O binary -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.bin
+Creating Extended Listing: simpleserial-aes-CW308_STM32F4.lss
+Creating Symbol Table: simpleserial-aes-CW308_STM32F4.sym
+arm-none-eabi-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+--change-section-lma .eeprom=0 --no-change-warnings -O ihex simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.eep || exit 0
+arm-none-eabi-nm -n simpleserial-aes-CW308_STM32F4.elf > simpleserial-aes-CW308_STM32F4.sym
+arm-none-eabi-objdump -h -S -z simpleserial-aes-CW308_STM32F4.elf > simpleserial-aes-CW308_STM32F4.lss
+Size after:
+   text	   data	    bss	    dec	    hex	filename
+   4940	    536	   2204	   7680	   1e00	simpleserial-aes-CW308_STM32F4.elf
++--------------------------------------------------------
++ Default target does full rebuild each time.
++ Specify buildtarget == allquick == to avoid full rebuild
++--------------------------------------------------------
++--------------------------------------------------------
++ Built for platform CW308T: STM32F4 Target with:
++ CRYPTO_TARGET = TINYAES128C
++ CRYPTO_OPTIONS = AES128C
++--------------------------------------------------------
+Building for platform CW308_STM32F4 with CRYPTO_TARGET=TINYAES128C
+SS_VER set to SS_VER_2_1
+SS_VER set to SS_VER_2_1
+Blank crypto options, building for AES128
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mkdir -p objdir-CW308_STM32F4 
+.
+Welcome to another exciting ChipWhisperer target build!!
+.
+.
+.
+.
+Compiling:
+Compiling:
+Compiling:
+Compiling:
+.
+-en     .././simpleserial/simpleserial.c ...
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_hal.c ...
+Compiling:
+-en     simpleserial-aes.c ...
+-en     .././hal/hal.c ...
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_hal_lowlevel.c ...
+.
+.
+.
+.
+Compiling:
+Compiling:
+Compiling:
+.
+Compiling:
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_sysmem.c ...
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4xx_hal_rng.c ...
+-en     .././crypto/tiny-AES128-C/aes.c ...
+Assembling: .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_startup.S
+-en     .././crypto/aes-independant.c ...
+arm-none-eabi-gcc -c -mcpu=cortex-m4 -I. -x assembler-with-cpp -mthumb -mfloat-abi=soft -fmessage-length=0 -ffunction-sections -DF_CPU=7372800 -Wa,-gstabs,-adhlns=objdir-CW308_STM32F4/stm32f4_startup.lst -I.././simpleserial/ -I.././hal/chipwhisperer-fw-extra -I.././hal/ -I.././hal/chipwhisperer-fw-extra/stm32f4 -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS/core -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS/device -I.././hal/chipwhisperer-fw-extra/stm32f4/Legacy -I.././simpleserial/ -I.././crypto/ -I.././crypto/tiny-AES128-C .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_startup.S -o objdir-CW308_STM32F4/stm32f4_startup.o
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+.
+LINKING:
+-en     simpleserial-aes-CW308_STM32F4.elf ...
+Memory region         Used Size  Region Size  %age Used
+             RAM:        2728 B       128 KB      2.08%
+          CCMRAM:          16 B        64 KB      0.02%
+             ROM:        5448 B         1 MB      0.52%
+-e Done!
+.
+.
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F4.bin
+Creating load file for Flash: simpleserial-aes-CW308_STM32F4.hex
+.
+arm-none-eabi-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.hex
+arm-none-eabi-objcopy -O binary -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.bin
+Creating load file for EEPROM: simpleserial-aes-CW308_STM32F4.eep
+.
+arm-none-eabi-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+--change-section-lma .eeprom=0 --no-change-warnings -O ihex simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.eep || exit 0
+Creating Extended Listing: simpleserial-aes-CW308_STM32F4.lss
+arm-none-eabi-objdump -h -S -z simpleserial-aes-CW308_STM32F4.elf > simpleserial-aes-CW308_STM32F4.lss
+Creating Symbol Table: simpleserial-aes-CW308_STM32F4.sym
+arm-none-eabi-nm -n simpleserial-aes-CW308_STM32F4.elf > simpleserial-aes-CW308_STM32F4.sym
+Size after:
+   text	   data	    bss	    dec	    hex	filename
+   4896	    552	   2204	   7652	   1de4	simpleserial-aes-CW308_STM32F4.elf
++--------------------------------------------------------
++ Default target does full rebuild each time.
++ Specify buildtarget == allquick == to avoid full rebuild
++--------------------------------------------------------
++--------------------------------------------------------
++ Built for platform CW308T: STM32F4 Target with:
++ CRYPTO_TARGET = TINYAES128C
++ CRYPTO_OPTIONS = AES128C
++--------------------------------------------------------
+Building for platform CW308_STM32F4 with CRYPTO_TARGET=TINYAES128C
+SS_VER set to SS_VER_2_1
+SS_VER set to SS_VER_2_1
+Blank crypto options, building for AES128
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mkdir -p objdir-CW308_STM32F4 
+.
+Welcome to another exciting ChipWhisperer target build!!
+.
+.
+.
+.
+Compiling:
+Compiling:
+Compiling:
+.
+Compiling:
+-en     simpleserial-aes.c ...
+-en     .././hal/hal.c ...
+-en     .././simpleserial/simpleserial.c ...
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_hal.c ...
+Compiling:
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_hal_lowlevel.c ...
+.
+.
+.
+Compiling:
+Compiling:
+Compiling:
+.
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_sysmem.c ...
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4xx_hal_rng.c ...
+-en     .././crypto/tiny-AES128-C/aes.c ...
+Compiling:
+.
+-en     .././crypto/aes-independant.c ...
+Assembling: .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_startup.S
+arm-none-eabi-gcc -c -mcpu=cortex-m4 -I. -x assembler-with-cpp -mthumb -mfloat-abi=soft -fmessage-length=0 -ffunction-sections -DF_CPU=7372800 -Wa,-gstabs,-adhlns=objdir-CW308_STM32F4/stm32f4_startup.lst -I.././simpleserial/ -I.././hal/chipwhisperer-fw-extra -I.././hal/ -I.././hal/chipwhisperer-fw-extra/stm32f4 -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS/core -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS/device -I.././hal/chipwhisperer-fw-extra/stm32f4/Legacy -I.././simpleserial/ -I.././crypto/ -I.././crypto/tiny-AES128-C .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_startup.S -o objdir-CW308_STM32F4/stm32f4_startup.o
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+.
+LINKING:
+-en     simpleserial-aes-CW308_STM32F4.elf ...
+Memory region         Used Size  Region Size  %age Used
+             RAM:        2208 B       128 KB      1.68%
+          CCMRAM:         524 B        64 KB      0.80%
+             ROM:        5476 B         1 MB      0.52%
+-e Done!
+.
+.
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F4.hex
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F4.bin
+.
+Creating load file for EEPROM: simpleserial-aes-CW308_STM32F4.eep
+arm-none-eabi-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.hex
+arm-none-eabi-objcopy -O binary -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.bin
+Creating Extended Listing: simpleserial-aes-CW308_STM32F4.lss
+arm-none-eabi-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+--change-section-lma .eeprom=0 --no-change-warnings -O ihex simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.eep || exit 0
+arm-none-eabi-objdump -h -S -z simpleserial-aes-CW308_STM32F4.elf > simpleserial-aes-CW308_STM32F4.lss
+Creating Symbol Table: simpleserial-aes-CW308_STM32F4.sym
+arm-none-eabi-nm -n simpleserial-aes-CW308_STM32F4.elf > simpleserial-aes-CW308_STM32F4.sym
+Size after:
+   text	   data	    bss	    dec	    hex	filename
+   4940	    536	   2208	   7684	   1e04	simpleserial-aes-CW308_STM32F4.elf
++--------------------------------------------------------
++ Default target does full rebuild each time.
++ Specify buildtarget == allquick == to avoid full rebuild
++--------------------------------------------------------
++--------------------------------------------------------
++ Built for platform CW308T: STM32F4 Target with:
++ CRYPTO_TARGET = TINYAES128C
++ CRYPTO_OPTIONS = AES128C
++--------------------------------------------------------
+Building for platform CW308_STM32F4 with CRYPTO_TARGET=TINYAES128C
+SS_VER set to SS_VER_2_1
+SS_VER set to SS_VER_2_1
+Blank crypto options, building for AES128
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mkdir -p objdir-CW308_STM32F4 
+.
+Welcome to another exciting ChipWhisperer target build!!
+.
+.
+Compiling:
+.
+.
+Compiling:
+.
+-en     simpleserial-aes.c ...
+Compiling:
+Compiling:
+Compiling:
+-en     .././simpleserial/simpleserial.c ...
+-en     .././hal/hal.c ...
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_hal.c ...
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_hal_lowlevel.c ...
+.
+.
+.
+Compiling:
+Compiling:
+Compiling:
+.
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_sysmem.c ...
+-en     .././crypto/tiny-AES128-C/aes.c ...
+-en     .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4xx_hal_rng.c ...
+.
+Compiling:
+Assembling: .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_startup.S
+-en     .././crypto/aes-independant.c ...
+arm-none-eabi-gcc -c -mcpu=cortex-m4 -I. -x assembler-with-cpp -mthumb -mfloat-abi=soft -fmessage-length=0 -ffunction-sections -DF_CPU=7372800 -Wa,-gstabs,-adhlns=objdir-CW308_STM32F4/stm32f4_startup.lst -I.././simpleserial/ -I.././hal/chipwhisperer-fw-extra -I.././hal/ -I.././hal/chipwhisperer-fw-extra/stm32f4 -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS/core -I.././hal/chipwhisperer-fw-extra/stm32f4/CMSIS/device -I.././hal/chipwhisperer-fw-extra/stm32f4/Legacy -I.././simpleserial/ -I.././crypto/ -I.././crypto/tiny-AES128-C .././hal/chipwhisperer-fw-extra/stm32f4/stm32f4_startup.S -o objdir-CW308_STM32F4/stm32f4_startup.o
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+-e Done!
+.
+LINKING:
+-en     simpleserial-aes-CW308_STM32F4.elf ...
+Memory region         Used Size  Region Size  %age Used
+             RAM:        2208 B       128 KB      1.68%
+          CCMRAM:         540 B        64 KB      0.82%
+             ROM:        5448 B         1 MB      0.52%
+-e Done!
+.
+.
+.
+.
+Creating load file for Flash: simpleserial-aes-CW308_STM32F4.hex
+Creating load file for EEPROM: simpleserial-aes-CW308_STM32F4.eep
+arm-none-eabi-objcopy -O ihex -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.hex
+Creating Extended Listing: simpleserial-aes-CW308_STM32F4.lss
+arm-none-eabi-objcopy -j .eeprom --set-section-flags=.eeprom="alloc,load" \
+--change-section-lma .eeprom=0 --no-change-warnings -O ihex simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.eep || exit 0
+Creating load file for Flash: simpleserial-aes-CW308_STM32F4.bin
+.
+arm-none-eabi-objdump -h -S -z simpleserial-aes-CW308_STM32F4.elf > simpleserial-aes-CW308_STM32F4.lss
+arm-none-eabi-objcopy -O binary -R .eeprom -R .fuse -R .lock -R .signature simpleserial-aes-CW308_STM32F4.elf simpleserial-aes-CW308_STM32F4.bin
+Creating Symbol Table: simpleserial-aes-CW308_STM32F4.sym
+arm-none-eabi-nm -n simpleserial-aes-CW308_STM32F4.elf > simpleserial-aes-CW308_STM32F4.sym
+Size after:
+   text	   data	    bss	    dec	    hex	filename
+   4896	    552	   2208	   7656	   1de8	simpleserial-aes-CW308_STM32F4.elf
++--------------------------------------------------------
++ Default target does full rebuild each time.
++ Specify buildtarget == allquick == to avoid full rebuild
++--------------------------------------------------------
++--------------------------------------------------------
++ Built for platform CW308T: STM32F4 Target with:
++ CRYPTO_TARGET = TINYAES128C
++ CRYPTO_OPTIONS = AES128C
++--------------------------------------------------------
+[MODE] Attaque sélectionnée : DPA
+
+============================================================
+  PHASE 1 : COMPILATION (une seule fois par config)
+============================================================
+
+[COMPILE] Nettoyage : make PLATFORM=CW308_STM32F4 clean
+[COMPILE] Build : make PLATFORM=CW308_STM32F4 CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1 -j
+[COMPILE] OK
+[COMPILE] Binaire configA sauvegardé : /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4_configA.bin
+
+[COMPILE] Nettoyage : make PLATFORM=CW308_STM32F4 clean
+[COMPILE] Build : make PLATFORM=CW308_STM32F4 CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1 EXTRA_OPTS="USE_CCM_KEY" -j
+[COMPILE] OK
+[COMPILE] Binaire configB sauvegardé : /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4_configB.bin
+
+[COMPILE] Nettoyage : make PLATFORM=CW308_STM32F4 clean
+[COMPILE] Build : make PLATFORM=CW308_STM32F4 CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1 EXTRA_OPTS="USE_CCM" -j
+[COMPILE] OK
+[COMPILE] Binaire configC sauvegardé : /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4_configC.bin
+
+[COMPILE] Nettoyage : make PLATFORM=CW308_STM32F4 clean
+[COMPILE] Build : make PLATFORM=CW308_STM32F4 CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1 EXTRA_OPTS="USE_CCM_SBOX" -j
+[COMPILE] OK
+[COMPILE] Binaire configD sauvegardé : /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4_configD.bin
+
+[COMPILE] Nettoyage : make PLATFORM=CW308_STM32F4 clean
+[COMPILE] Build : make PLATFORM=CW308_STM32F4 CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1 EXTRA_OPTS="USE_CCM_STACK -Wl,--defsym=_estack=0x10010000" -j
+[COMPILE] OK
+[COMPILE] Binaire configE sauvegardé : /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4_configE.bin
+
+[COMPILE] Nettoyage : make PLATFORM=CW308_STM32F4 clean
+[COMPILE] Build : make PLATFORM=CW308_STM32F4 CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1 EXTRA_OPTS="USE_CCM_KEY -DUSE_CCM_STACK -Wl,--defsym=_estack=0x10010000" -j
+[COMPILE] OK
+[COMPILE] Binaire configF sauvegardé : /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4_configF.bin
+
+[COMPILE] Nettoyage : make PLATFORM=CW308_STM32F4 clean
+[COMPILE] Build : make PLATFORM=CW308_STM32F4 CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1 EXTRA_OPTS="USE_CCM_SBOX -DUSE_CCM_STACK -Wl,--defsym=_estack=0x10010000" -j
+[COMPILE] OK
+[COMPILE] Binaire configG sauvegardé : /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4_configG.bin
+
+[COMPILE] Nettoyage : make PLATFORM=CW308_STM32F4 clean
+[COMPILE] Build : make PLATFORM=CW308_STM32F4 CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1 EXTRA_OPTS="USE_CCM -DUSE_CCM_STACK -Wl,--defsym=_estack=0x10010000" -j
+[COMPILE] OK
+[COMPILE] Binaire configH sauvegardé : /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4_configH.bin
+
+============================================================
+  PHASE 2 : CONNEXION SCOPE
+============================================================
+scope.gain.mode                          changed from low                       to high                     
+scope.gain.gain                          changed from 0                         to 30                       
+scope.gain.db                            changed from 5.5                       to 24.8359375               
+scope.adc.basic_mode                     changed from low                       to rising_edge              
+scope.adc.samples                        changed from 24400                     to 5000                     
+scope.adc.trig_count                     changed from 7762343                   to 34409060                 
+scope.clock.adc_src                      changed from clkgen_x1                 to clkgen_x4                
+scope.clock.adc_freq                     changed from 0                         to 27571380                 
+scope.clock.adc_rate                     changed from 0.0                       to 27571380.0               
+scope.clock.clkgen_div                   changed from 1                         to 26                       
+scope.clock.clkgen_freq                  changed from 192000000.0               to 7384615.384615385        
+scope.io.tio1                            changed from serial_tx                 to serial_rx                
+scope.io.tio2                            changed from serial_rx                 to serial_tx                
+scope.io.hs2                             changed from None                      to clkgen                   
+scope.io.tio_states                      changed from (1, 0, 0, 0)              to (0, 1, 0, 0)             
+scope.io.cdc_settings                    changed from [1, 0, 0, 0]              to [0, 0, 0, 0]             
+[SCOPE] Connecté. Gain=45, Samples=5000
+-------------------ATTACK MODE----------------------- DPA
+
+───────────────────────────────────────────────────────
+  RUN 1/5  (seed=43)
+───────────────────────────────────────────────────────
+
+  [A] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=43 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config A: ✅  corr=0.1495  min_traces=94
+
+  [B] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=43 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config B: ✅  corr=0.1461  min_traces=98
+
+  [C] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=43 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config C: ✅  corr=0.1439  min_traces=84
+
+  [D] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=43 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config D: ✅  corr=0.1410  min_traces=80
+
+  [E] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=43 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config E: ✅  corr=0.1476  min_traces=100
+
+  [F] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=43 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config F: ✅  corr=0.1474  min_traces=96
+
+  [G] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=43 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config G: ✅  corr=0.1410  min_traces=122
+
+  [H] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=43 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config H: ✅  corr=0.1402  min_traces=114
+
+───────────────────────────────────────────────────────
+  RUN 2/5  (seed=44)
+───────────────────────────────────────────────────────
+
+  [A] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=44 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config A: ✅  corr=0.1470  min_traces=86
+
+  [B] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=44 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config B: ✅  corr=0.1477  min_traces=94
+
+  [C] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=44 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config C: ✅  corr=0.1428  min_traces=148
+
+  [D] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=44 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config D: ✅  corr=0.1412  min_traces=92
+
+  [E] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=44 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config E: ✅  corr=0.1466  min_traces=100
+
+  [F] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=44 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config F: ✅  corr=0.1468  min_traces=96
+
+  [G] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=44 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config G: ✅  corr=0.1415  min_traces=90
+
+  [H] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=44 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config H: ✅  corr=0.1411  min_traces=106
+
+───────────────────────────────────────────────────────
+  RUN 3/5  (seed=45)
+───────────────────────────────────────────────────────
+
+  [A] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=45 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config A: ✅  corr=0.1463  min_traces=104
+
+  [B] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=45 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config B: ✅  corr=0.1469  min_traces=88
+
+  [C] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=45 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config C: ✅  corr=0.1428  min_traces=100
+
+  [D] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=45 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config D: ✅  corr=0.1402  min_traces=92
+
+  [E] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=45 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config E: ✅  corr=0.1466  min_traces=92
+
+  [F] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=45 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config F: ✅  corr=0.1454  min_traces=118
+
+  [G] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=45 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config G: ✅  corr=0.1398  min_traces=82
+
+  [H] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=45 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config H: ✅  corr=0.1412  min_traces=82
+
+───────────────────────────────────────────────────────
+  RUN 4/5  (seed=46)
+───────────────────────────────────────────────────────
+
+  [A] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=46 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config A: ✅  corr=0.1477  min_traces=94
+
+  [B] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=46 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config B: ✅  corr=0.1464  min_traces=86
+
+  [C] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=46 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config C: ✅  corr=0.1410  min_traces=116
+
+  [D] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=46 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config D: ✅  corr=0.1413  min_traces=116
+
+  [E] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=46 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)
+[CAPTURE] 150 traces valides capturées
+checkpoints list:   [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138, 140, 142, 144, 146, 148, 150]
+  Config E: ✅  corr=0.1478  min_traces=104
+
+  [F] Flash + Capture...
+  [FLASH F4] st-flash write /home/amine/chipwhisperer/firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.bin 0x08000000
+  [FLASH F4] OK — chip resetté.
+[CAPTURE] Seed=46 — plaintexts déterministes
+[CAPTURE] Clé envoyée (tentative 1)

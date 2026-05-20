@@ -1,0 +1,4 @@
+chipwhisperer
+numpy
+matplotlib
+tqdm

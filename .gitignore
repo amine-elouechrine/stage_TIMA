@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.hex
+*.bin
+*.elf
+*.o
+*.lss
+*.sym
+objdir-*/
+.ipynb_checkpoints/
+results/
+cpa_scripts_backup/

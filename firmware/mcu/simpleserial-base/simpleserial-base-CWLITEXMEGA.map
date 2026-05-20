@@ -1,0 +1,873 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_exit.o)
+                              /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o (exit)
+/usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_copy_data.o)
+                              objdir-CWLITEXMEGA/simpleserial.o (__do_copy_data)
+/usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_clear_bss.o)
+                              objdir-CWLITEXMEGA/simpleserial.o (__do_clear_bss)
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00022000         xr
+data             0x00802000         0x00002000         rw!x
+eeprom           0x00810000         0x00000800         rw!x
+fuse             0x00820000         0x00000006         rw!x
+lock             0x00830000         0x00000400         rw!x
+signature        0x00840000         0x00000003         rw!x
+user_signatures  0x00850000         0x00000200         rw!x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+LOAD objdir-CWLITEXMEGA/simpleserial-base.o
+LOAD objdir-CWLITEXMEGA/simpleserial.o
+LOAD objdir-CWLITEXMEGA/hal.o
+LOAD objdir-CWLITEXMEGA/XMEGA_AES_driver.o
+LOAD objdir-CWLITEXMEGA/uart.o
+LOAD objdir-CWLITEXMEGA/usart_driver.o
+LOAD objdir-CWLITEXMEGA/xmega_hal.o
+LOAD /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/libm.a
+START GROUP
+LOAD /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a
+LOAD /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/libm.a
+LOAD /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/libc.a
+LOAD /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/libatxmega128d3.a
+END GROUP
+                [0x00000000]                      __TEXT_REGION_ORIGIN__ = DEFINED (__TEXT_REGION_ORIGIN__)?__TEXT_REGION_ORIGIN__:0x0
+                [0x00022000]                      __TEXT_REGION_LENGTH__ = DEFINED (__TEXT_REGION_LENGTH__)?__TEXT_REGION_LENGTH__:0x100000
+                [0x00802000]                      __DATA_REGION_ORIGIN__ = DEFINED (__DATA_REGION_ORIGIN__)?__DATA_REGION_ORIGIN__:0x802000
+                [0x00002000]                      __DATA_REGION_LENGTH__ = DEFINED (__DATA_REGION_LENGTH__)?__DATA_REGION_LENGTH__:0xffa0
+                [0x00000800]                      __EEPROM_REGION_LENGTH__ = DEFINED (__EEPROM_REGION_LENGTH__)?__EEPROM_REGION_LENGTH__:0x10000
+                [0x00000006]                      __FUSE_REGION_LENGTH__ = DEFINED (__FUSE_REGION_LENGTH__)?__FUSE_REGION_LENGTH__:0x400
+                0x00000400                        __LOCK_REGION_LENGTH__ = DEFINED (__LOCK_REGION_LENGTH__)?__LOCK_REGION_LENGTH__:0x400
+                [0x00000003]                      __SIGNATURE_REGION_LENGTH__ = DEFINED (__SIGNATURE_REGION_LENGTH__)?__SIGNATURE_REGION_LENGTH__:0x400
+                [0x00000200]                      __USER_SIGNATURE_REGION_LENGTH__ = DEFINED (__USER_SIGNATURE_REGION_LENGTH__)?__USER_SIGNATURE_REGION_LENGTH__:0x400
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x838
+ *(.vectors)
+ .vectors       0x00000000      0x1c8 /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+                0x000001c8                        . = ALIGN (0x2)
+                0x000001c8                        __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x000001c8       0x18 linker stubs
+ *(.trampolines*)
+                0x000001e0                        __trampolines_end = .
+ *libprintf_flt.a:*(.progmem.data)
+ *libc.a:*(.progmem.data)
+ *(.progmem.*)
+                0x000001e0                        . = ALIGN (0x2)
+ *(.lowtext)
+ *(.lowtext*)
+                0x000001e0                        __ctors_start = .
+ *(.ctors)
+                0x000001e0                        __ctors_end = .
+                0x000001e0                        __dtors_start = .
+ *(.dtors)
+                0x000001e0                        __dtors_end = .
+ SORT_BY_NAME(*)(.ctors)
+ SORT_BY_NAME(*)(.dtors)
+ *(.init0)
+ .init0         0x000001e0        0x0 /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+                0x000001e0                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x000001e0       0x10 /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x000001f0       0x1a /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_copy_data.o)
+                0x000001f0                __do_copy_data
+ .init4         0x0000020a       0x10 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_clear_bss.o)
+                0x0000020a                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000021a        0x8 /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+ *(.init9)
+ *(.text)
+ .text          0x00000222        0x4 /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+                0x00000222                __vector_38
+                0x00000222                __vector_104
+                0x00000222                __vector_22
+                0x00000222                __vector_63
+                0x00000222                __vector_28
+                0x00000222                __vector_67
+                0x00000222                __vector_1
+                0x00000222                __vector_32
+                0x00000222                __vector_75
+                0x00000222                __vector_71
+                0x00000222                __vector_91
+                0x00000222                __vector_34
+                0x00000222                __vector_62
+                0x00000222                __vector_77
+                0x00000222                __vector_102
+                0x00000222                __vector_24
+                0x00000222                __vector_12
+                0x00000222                __vector_55
+                0x00000222                __vector_69
+                0x00000222                __vector_81
+                0x00000222                __vector_90
+                0x00000222                __vector_46
+                0x00000222                __bad_interrupt
+                0x00000222                __vector_72
+                0x00000222                __vector_6
+                0x00000222                __vector_110
+                0x00000222                __vector_31
+                0x00000222                __vector_92
+                0x00000222                __vector_35
+                0x00000222                __vector_78
+                0x00000222                __vector_74
+                0x00000222                __vector_39
+                0x00000222                __vector_107
+                0x00000222                __vector_3
+                0x00000222                __vector_105
+                0x00000222                __vector_98
+                0x00000222                __vector_23
+                0x00000222                __vector_68
+                0x00000222                __vector_30
+                0x00000222                __vector_73
+                0x00000222                __vector_45
+                0x00000222                __vector_25
+                0x00000222                __vector_93
+                0x00000222                __vector_61
+                0x00000222                __vector_11
+                0x00000222                __vector_54
+                0x00000222                __vector_99
+                0x00000222                __vector_13
+                0x00000222                __vector_17
+                0x00000222                __vector_19
+                0x00000222                __vector_56
+                0x00000222                __vector_7
+                0x00000222                __vector_49
+                0x00000222                __vector_41
+                0x00000222                __vector_86
+                0x00000222                __vector_100
+                0x00000222                __vector_101
+                0x00000222                __vector_64
+                0x00000222                __vector_88
+                0x00000222                __vector_109
+                0x00000222                __vector_43
+                0x00000222                __vector_27
+                0x00000222                __vector_5
+                0x00000222                __vector_113
+                0x00000222                __vector_33
+                0x00000222                __vector_76
+                0x00000222                __vector_47
+                0x00000222                __vector_52
+                0x00000222                __vector_37
+                0x00000222                __vector_95
+                0x00000222                __vector_103
+                0x00000222                __vector_96
+                0x00000222                __vector_89
+                0x00000222                __vector_108
+                0x00000222                __vector_4
+                0x00000222                __vector_44
+                0x00000222                __vector_82
+                0x00000222                __vector_106
+                0x00000222                __vector_51
+                0x00000222                __vector_9
+                0x00000222                __vector_2
+                0x00000222                __vector_21
+                0x00000222                __vector_15
+                0x00000222                __vector_66
+                0x00000222                __vector_36
+                0x00000222                __vector_79
+                0x00000222                __vector_58
+                0x00000222                __vector_70
+                0x00000222                __vector_83
+                0x00000222                __vector_29
+                0x00000222                __vector_60
+                0x00000222                __vector_40
+                0x00000222                __vector_85
+                0x00000222                __vector_94
+                0x00000222                __vector_8
+                0x00000222                __vector_26
+                0x00000222                __vector_48
+                0x00000222                __vector_112
+                0x00000222                __vector_111
+                0x00000222                __vector_80
+                0x00000222                __vector_14
+                0x00000222                __vector_84
+                0x00000222                __vector_57
+                0x00000222                __vector_53
+                0x00000222                __vector_10
+                0x00000222                __vector_50
+                0x00000222                __vector_16
+                0x00000222                __vector_59
+                0x00000222                __vector_18
+                0x00000222                __vector_97
+                0x00000222                __vector_20
+                0x00000222                __vector_42
+                0x00000222                __vector_87
+                0x00000222                __vector_65
+ .text          0x00000226       0x20 objdir-CWLITEXMEGA/simpleserial-base.o
+                0x00000226                get_key
+                0x0000022a                get_pt
+                0x00000242                reset
+ .text          0x00000246      0x3ca objdir-CWLITEXMEGA/simpleserial.o
+                0x00000246                check_version
+                0x000002a6                ss_num_commands
+                0x000002ce                ss_get_commands
+                0x0000034e                ss_crc
+                0x00000382                hex_decode
+                0x00000402                simpleserial_addcmd_flags
+                0x0000044c                simpleserial_addcmd
+                0x00000452                simpleserial_init
+                0x0000047c                simpleserial_get
+                0x00000604                simpleserial_put
+ .text          0x00000610       0x14 objdir-CWLITEXMEGA/hal.o
+                0x00000610                led_ok
+                0x00000612                led_error
+                0x00000614                _close
+                0x00000616                _fstat
+                0x00000618                _getpid
+                0x0000061a                _isatty
+                0x0000061c                _kill
+                0x0000061e                _lseek
+                0x00000620                _read
+                0x00000622                _write
+ .text          0x00000624        0x0 objdir-CWLITEXMEGA/XMEGA_AES_driver.o
+ .text          0x00000624       0x86 objdir-CWLITEXMEGA/uart.o
+                0x00000624                init_uart0
+                0x0000064c                input_ch_w_timeout_0
+                0x0000068e                input_ch_0
+                0x0000069c                output_ch_0
+ .text          0x000006aa      0x11c objdir-CWLITEXMEGA/usart_driver.o
+                0x000006aa                USART_InterruptDriver_Initialize
+                0x000006bc                USART_InterruptDriver_DreInterruptLevel_Set
+                0x000006c2                USART_TXBuffer_FreeSpace
+                0x000006d6                USART_TXBuffer_PutByte
+                0x0000070e                USART_RXBufferData_Available
+                0x0000071e                USART_RXBuffer_GetByte
+                0x00000736                USART_RXComplete
+                0x00000760                USART_DataRegEmpty
+                0x0000079a                USART_NineBits_PutChar
+                0x000007b0                USART_NineBits_GetChar
+ .text          0x000007c6       0x2c objdir-CWLITEXMEGA/xmega_hal.o
+                0x000007c6                platform_init
+ .text          0x000007f2        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_exit.o)
+ .text          0x000007f2        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text          0x000007f2        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_clear_bss.o)
+                0x000007f2                        . = ALIGN (0x2)
+ *(.text.*)
+ .text.startup  0x000007f2       0x42 objdir-CWLITEXMEGA/simpleserial-base.o
+                0x000007f2                main
+ .text.libgcc.mul
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_exit.o)
+ .text.libgcc   0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_clear_bss.o)
+                0x00000834                        . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000834        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_exit.o)
+                0x00000834                exit
+                0x00000834                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000834        0x4 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_exit.o)
+ *(.fini0)
+ *(.hightext)
+ *(.hightext*)
+ *(.progmemx.*)
+                0x00000838                        . = ALIGN (0x2)
+ *(.jumptables)
+ *(.jumptables*)
+                0x00000838                        _etext = .
+
+.data           0x00802000       0x10 load address 0x00000838
+                0x00802000                        PROVIDE (__data_start = .)
+ *(.data)
+ .data          0x00802000        0x0 /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+ .data          0x00802000        0x0 objdir-CWLITEXMEGA/simpleserial-base.o
+ .data          0x00802000        0x0 objdir-CWLITEXMEGA/simpleserial.o
+ .data          0x00802000        0x0 objdir-CWLITEXMEGA/hal.o
+ .data          0x00802000        0x0 objdir-CWLITEXMEGA/XMEGA_AES_driver.o
+ .data          0x00802000        0x0 objdir-CWLITEXMEGA/uart.o
+ .data          0x00802000        0x0 objdir-CWLITEXMEGA/usart_driver.o
+ .data          0x00802000        0x0 objdir-CWLITEXMEGA/xmega_hal.o
+ .data          0x00802000        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_exit.o)
+ .data          0x00802000        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_copy_data.o)
+ .data          0x00802000        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.gnu.linkonce.d*)
+ *(.rodata)
+ .rodata        0x00802000       0x10 objdir-CWLITEXMEGA/simpleserial.o
+ *(.rodata*)
+ *(.gnu.linkonce.r*)
+                0x00802010                        . = ALIGN (0x2)
+                0x00802010                        _edata = .
+                0x00802010                        PROVIDE (__data_end = .)
+
+.bss            0x00802010       0xc2
+                0x00802010                        PROVIDE (__bss_start = .)
+ *(.bss)
+ .bss           0x00802010        0x0 /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+ .bss           0x00802010        0x0 objdir-CWLITEXMEGA/simpleserial-base.o
+ .bss           0x00802010       0xc2 objdir-CWLITEXMEGA/simpleserial.o
+ .bss           0x008020d2        0x0 objdir-CWLITEXMEGA/hal.o
+ .bss           0x008020d2        0x0 objdir-CWLITEXMEGA/XMEGA_AES_driver.o
+ .bss           0x008020d2        0x0 objdir-CWLITEXMEGA/uart.o
+ .bss           0x008020d2        0x0 objdir-CWLITEXMEGA/usart_driver.o
+ .bss           0x008020d2        0x0 objdir-CWLITEXMEGA/xmega_hal.o
+ .bss           0x008020d2        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_exit.o)
+ .bss           0x008020d2        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_copy_data.o)
+ .bss           0x008020d2        0x0 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+                0x008020d2                        PROVIDE (__bss_end = .)
+                0x00000838                        __data_load_start = LOADADDR (.data)
+                0x00000848                        __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x008020d2        0x0
+                [!provide]                        PROVIDE (__noinit_start = .)
+ *(.noinit .noinit.* .gnu.linkonce.n.*)
+                [!provide]                        PROVIDE (__noinit_end = .)
+                0x008020d2                        _end = .
+                [!provide]                        PROVIDE (__heap_start = .)
+                0x00000000                        __flmap_init_label = DEFINED (__flmap_noinit_start)?__flmap_noinit_start:0x0
+                0x00000000                        __flmap = DEFINED (__flmap)?__flmap:0x0
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                        __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x12
+ *(.comment)
+ .comment       0x00000000       0x12 objdir-CWLITEXMEGA/simpleserial-base.o
+                                 0x13 (size before relaxing)
+ .comment       0x00000012       0x13 objdir-CWLITEXMEGA/simpleserial.o
+ .comment       0x00000012       0x13 objdir-CWLITEXMEGA/hal.o
+ .comment       0x00000012       0x13 objdir-CWLITEXMEGA/XMEGA_AES_driver.o
+ .comment       0x00000012       0x13 objdir-CWLITEXMEGA/uart.o
+ .comment       0x00000012       0x13 objdir-CWLITEXMEGA/usart_driver.o
+ .comment       0x00000012       0x13 objdir-CWLITEXMEGA/xmega_hal.o
+
+.note.gnu.avr.deviceinfo
+                0x00000000       0x40
+ .note.gnu.avr.deviceinfo
+                0x00000000       0x40 /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+
+.gnu.build.attributes
+ *(.gnu.build.attributes .gnu.build.attributes.*)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0xc8
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x28 objdir-CWLITEXMEGA/simpleserial-base.o
+ .debug_aranges
+                0x00000028       0x20 objdir-CWLITEXMEGA/simpleserial.o
+ .debug_aranges
+                0x00000048       0x20 objdir-CWLITEXMEGA/hal.o
+ .debug_aranges
+                0x00000068       0x20 objdir-CWLITEXMEGA/uart.o
+ .debug_aranges
+                0x00000088       0x20 objdir-CWLITEXMEGA/usart_driver.o
+ .debug_aranges
+                0x000000a8       0x20 objdir-CWLITEXMEGA/xmega_hal.o
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0x3c2e
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000     0x2168 /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+ .debug_info    0x00002168      0x460 objdir-CWLITEXMEGA/simpleserial-base.o
+ .debug_info    0x000025c8      0x966 objdir-CWLITEXMEGA/simpleserial.o
+ .debug_info    0x00002f2e      0x11a objdir-CWLITEXMEGA/hal.o
+ .debug_info    0x00003048      0x3d9 objdir-CWLITEXMEGA/uart.o
+ .debug_info    0x00003421      0x642 objdir-CWLITEXMEGA/usart_driver.o
+ .debug_info    0x00003a63      0x1cb objdir-CWLITEXMEGA/xmega_hal.o
+
+.debug_abbrev   0x00000000     0x29c5
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000     0x1fa2 /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+ .debug_abbrev  0x00001fa2      0x19f objdir-CWLITEXMEGA/simpleserial-base.o
+ .debug_abbrev  0x00002141      0x367 objdir-CWLITEXMEGA/simpleserial.o
+ .debug_abbrev  0x000024a8       0xac objdir-CWLITEXMEGA/hal.o
+ .debug_abbrev  0x00002554      0x152 objdir-CWLITEXMEGA/uart.o
+ .debug_abbrev  0x000026a6      0x254 objdir-CWLITEXMEGA/usart_driver.o
+ .debug_abbrev  0x000028fa       0xcb objdir-CWLITEXMEGA/xmega_hal.o
+
+.debug_line     0x00000000     0x14f9
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x00000000       0x1d /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+ .debug_line    0x0000001d      0x199 objdir-CWLITEXMEGA/simpleserial-base.o
+ .debug_line    0x000001b6      0x952 objdir-CWLITEXMEGA/simpleserial.o
+ .debug_line    0x00000b08       0x8a objdir-CWLITEXMEGA/hal.o
+ .debug_line    0x00000b92        0x0 objdir-CWLITEXMEGA/XMEGA_AES_driver.o
+ .debug_line    0x00000b92      0x211 objdir-CWLITEXMEGA/uart.o
+ .debug_line    0x00000da3      0x61a objdir-CWLITEXMEGA/usart_driver.o
+ .debug_line    0x000013bd      0x13c objdir-CWLITEXMEGA/xmega_hal.o
+
+.debug_frame    0x00000000      0x39c
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x54 objdir-CWLITEXMEGA/simpleserial-base.o
+ .debug_frame   0x00000054      0x13c objdir-CWLITEXMEGA/simpleserial.o
+ .debug_frame   0x00000190       0xb4 objdir-CWLITEXMEGA/hal.o
+ .debug_frame   0x00000244       0x64 objdir-CWLITEXMEGA/uart.o
+ .debug_frame   0x000002a8       0xd0 objdir-CWLITEXMEGA/usart_driver.o
+ .debug_frame   0x00000378       0x24 objdir-CWLITEXMEGA/xmega_hal.o
+
+.debug_str      0x00000000     0x1f10
+ *(.debug_str)
+ .debug_str     0x00000000     0x1641 /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+ .debug_str     0x00001641      0x8cf objdir-CWLITEXMEGA/simpleserial-base.o
+                                0x2ca (size before relaxing)
+ .debug_str     0x00001f10      0x2b2 objdir-CWLITEXMEGA/simpleserial.o
+ .debug_str     0x00001f10      0x1b4 objdir-CWLITEXMEGA/hal.o
+ .debug_str     0x00001f10      0x10c objdir-CWLITEXMEGA/XMEGA_AES_driver.o
+ .debug_str     0x00001f10      0x3c6 objdir-CWLITEXMEGA/uart.o
+ .debug_str     0x00001f10      0x462 objdir-CWLITEXMEGA/usart_driver.o
+ .debug_str     0x00001f10      0x298 objdir-CWLITEXMEGA/xmega_hal.o
+
+.debug_loc      0x00000000      0xf5f
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x9d objdir-CWLITEXMEGA/simpleserial-base.o
+ .debug_loc     0x0000009d      0x957 objdir-CWLITEXMEGA/simpleserial.o
+ .debug_loc     0x000009f4       0xe4 objdir-CWLITEXMEGA/uart.o
+ .debug_loc     0x00000ad8      0x487 objdir-CWLITEXMEGA/usart_driver.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x00000000       0xc0
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x18 objdir-CWLITEXMEGA/simpleserial-base.o
+ .debug_ranges  0x00000018       0x90 objdir-CWLITEXMEGA/simpleserial.o
+ .debug_ranges  0x000000a8       0x18 objdir-CWLITEXMEGA/usart_driver.o
+
+.debug_addr
+ *(.debug_addr)
+
+.debug_line_str
+ *(.debug_line_str)
+
+.debug_loclists
+ *(.debug_loclists)
+
+.debug_macro
+ *(.debug_macro)
+
+.debug_names
+ *(.debug_names)
+
+.debug_rnglists
+ *(.debug_rnglists)
+
+.debug_str_offsets
+ *(.debug_str_offsets)
+
+.debug_sup
+ *(.debug_sup)
+OUTPUT(simpleserial-base-CWLITEXMEGA.elf elf32-avr)
+LOAD linker stubs
+
+Cross Reference Table
+
+Symbol                                            File
+USART_DataRegEmpty                                objdir-CWLITEXMEGA/usart_driver.o
+USART_InterruptDriver_DreInterruptLevel_Set       objdir-CWLITEXMEGA/usart_driver.o
+USART_InterruptDriver_Initialize                  objdir-CWLITEXMEGA/usart_driver.o
+USART_NineBits_GetChar                            objdir-CWLITEXMEGA/usart_driver.o
+USART_NineBits_PutChar                            objdir-CWLITEXMEGA/usart_driver.o
+USART_RXBufferData_Available                      objdir-CWLITEXMEGA/usart_driver.o
+USART_RXBuffer_GetByte                            objdir-CWLITEXMEGA/usart_driver.o
+USART_RXComplete                                  objdir-CWLITEXMEGA/usart_driver.o
+USART_TXBuffer_FreeSpace                          objdir-CWLITEXMEGA/usart_driver.o
+USART_TXBuffer_PutByte                            objdir-CWLITEXMEGA/usart_driver.o
+__DATA_REGION_LENGTH__                            /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__DATA_REGION_ORIGIN__                            /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__EEPROM_REGION_LENGTH__                          /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__FUSE_REGION_LENGTH__                            /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__SIGNATURE_REGION_LENGTH__                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__TEXT_REGION_LENGTH__                            /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__TEXT_REGION_ORIGIN__                            /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__USER_SIGNATURE_REGION_LENGTH__                  /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__bad_interrupt                                   /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__bss_end                                         /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_clear_bss.o)
+__bss_start                                       /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_clear_bss.o)
+__data_end                                        /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_copy_data.o)
+__data_load_start                                 /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_copy_data.o)
+__data_start                                      /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_copy_data.o)
+__do_clear_bss                                    /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_clear_bss.o)
+                                                  objdir-CWLITEXMEGA/simpleserial.o
+__do_copy_data                                    /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_copy_data.o)
+                                                  objdir-CWLITEXMEGA/simpleserial.o
+__heap_end                                        /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__init                                            /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__stack                                           /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_1                                        /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_10                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_100                                      /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_101                                      /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_102                                      /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_103                                      /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_104                                      /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_105                                      /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_106                                      /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_107                                      /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_108                                      /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_109                                      /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_11                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_110                                      /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_111                                      /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_112                                      /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_113                                      /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_12                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_13                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_14                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_15                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_16                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_17                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_18                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_19                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_2                                        /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_20                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_21                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_22                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_23                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_24                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_25                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_26                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_27                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_28                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_29                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_3                                        /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_30                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_31                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_32                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_33                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_34                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_35                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_36                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_37                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_38                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_39                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_4                                        /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_40                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_41                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_42                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_43                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_44                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_45                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_46                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_47                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_48                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_49                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_5                                        /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_50                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_51                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_52                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_53                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_54                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_55                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_56                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_57                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_58                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_59                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_6                                        /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_60                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_61                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_62                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_63                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_64                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_65                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_66                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_67                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_68                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_69                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_7                                        /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_70                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_71                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_72                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_73                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_74                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_75                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_76                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_77                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_78                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_79                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_8                                        /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_80                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_81                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_82                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_83                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_84                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_85                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_86                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_87                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_88                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_89                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_9                                        /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_90                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_91                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_92                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_93                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_94                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_95                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_96                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_97                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_98                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_99                                       /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vector_default                                  /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+__vectors                                         /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+_close                                            objdir-CWLITEXMEGA/hal.o
+_exit                                             /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_exit.o)
+_fstat                                            objdir-CWLITEXMEGA/hal.o
+_getpid                                           objdir-CWLITEXMEGA/hal.o
+_isatty                                           objdir-CWLITEXMEGA/hal.o
+_kill                                             objdir-CWLITEXMEGA/hal.o
+_lseek                                            objdir-CWLITEXMEGA/hal.o
+_read                                             objdir-CWLITEXMEGA/hal.o
+_write                                            objdir-CWLITEXMEGA/hal.o
+check_version                                     objdir-CWLITEXMEGA/simpleserial.o
+exit                                              /usr/lib/gcc/avr/14.2.0/avrxmega6/libgcc.a(_exit.o)
+                                                  /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+get_key                                           objdir-CWLITEXMEGA/simpleserial-base.o
+get_pt                                            objdir-CWLITEXMEGA/simpleserial-base.o
+hex_decode                                        objdir-CWLITEXMEGA/simpleserial.o
+init_uart0                                        objdir-CWLITEXMEGA/uart.o
+                                                  objdir-CWLITEXMEGA/simpleserial-base.o
+input_ch_0                                        objdir-CWLITEXMEGA/uart.o
+                                                  objdir-CWLITEXMEGA/simpleserial.o
+input_ch_w_timeout_0                              objdir-CWLITEXMEGA/uart.o
+led_error                                         objdir-CWLITEXMEGA/hal.o
+led_ok                                            objdir-CWLITEXMEGA/hal.o
+main                                              objdir-CWLITEXMEGA/simpleserial-base.o
+                                                  /usr/lib/gcc/avr/14.2.0/../../../avr/lib/avrxmega6/crtatxmega128d3.o
+output_ch_0                                       objdir-CWLITEXMEGA/uart.o
+                                                  objdir-CWLITEXMEGA/simpleserial.o
+platform_init                                     objdir-CWLITEXMEGA/xmega_hal.o
+                                                  objdir-CWLITEXMEGA/simpleserial-base.o
+reset                                             objdir-CWLITEXMEGA/simpleserial-base.o
+simpleserial_addcmd                               objdir-CWLITEXMEGA/simpleserial.o
+                                                  objdir-CWLITEXMEGA/simpleserial-base.o
+simpleserial_addcmd_flags                         objdir-CWLITEXMEGA/simpleserial.o
+simpleserial_get                                  objdir-CWLITEXMEGA/simpleserial.o
+                                                  objdir-CWLITEXMEGA/simpleserial-base.o
+simpleserial_init                                 objdir-CWLITEXMEGA/simpleserial.o
+                                                  objdir-CWLITEXMEGA/simpleserial-base.o
+simpleserial_put                                  objdir-CWLITEXMEGA/simpleserial.o
+                                                  objdir-CWLITEXMEGA/simpleserial-base.o
+ss_crc                                            objdir-CWLITEXMEGA/simpleserial.o
+ss_get_commands                                   objdir-CWLITEXMEGA/simpleserial.o
+ss_num_commands                                   objdir-CWLITEXMEGA/simpleserial.o
