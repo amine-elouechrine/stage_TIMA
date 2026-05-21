@@ -16,7 +16,7 @@ N_RUNS      = 5
 PLATFORM    = 'CW308_STM32F3'
 N_TRACES    = 150
 SEED        = 42   # seed fixe → mêmes plaintexts à chaque run
-ATTACK_MODE = 'DPA'   # ← 'CPA' ou 'DPA'
+ATTACK_MODE = 'CPA'   # ← 'CPA' ou 'DPA'
 
 # Sélection automatique de la fonction d'attaque
 _attack_fn = cpa_attack_full if ATTACK_MODE == 'CPA' else dpa_attack_full

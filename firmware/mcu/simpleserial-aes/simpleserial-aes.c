@@ -21,7 +21,20 @@
 #include "simpleserial.h"
 #include <stdint.h>
 #include <stdlib.h>
+#include <string.h>
 
+void AES128_set_config(uint8_t config);
+
+static uint32_t lfsr = 0xACE1u;
+static uint32_t prng(void) {
+    uint32_t bit = ((lfsr >> 0) ^ (lfsr >> 2) ^ (lfsr >> 3) ^ (lfsr >> 5)) & 1u;
+    lfsr = (lfsr >> 1) | (bit << 15);
+    return lfsr;
+}
+
+static uint8_t state_sram[16];
+static uint8_t state_ccm[16] __attribute__((section(".ccmram")));
+static uint8_t master_key[16];
 
 uint8_t get_mask(uint8_t* m, uint8_t len)
 {
@@ -31,13 +44,21 @@ uint8_t get_mask(uint8_t* m, uint8_t len)
 
 uint8_t get_key(uint8_t* k, uint8_t len)
 {
-	aes_indep_key(k);
+    memcpy(master_key, k, 16);
+	aes_indep_key(master_key);
 	return 0x00;
 }
 
 uint8_t get_pt(uint8_t* pt, uint8_t len)
 {
-    aes_indep_enc_pretrigger(pt);
+    uint8_t config = prng() & 0x07;
+    AES128_set_config(config);
+    aes_indep_key(master_key);
+    
+    uint8_t* active_state = (config & 0x04) ? state_ccm : state_sram;
+    memcpy(active_state, pt, 16);
+
+    aes_indep_enc_pretrigger(active_state);
 
 	trigger_high();
 
@@ -45,10 +66,12 @@ uint8_t get_pt(uint8_t* pt, uint8_t len)
   for (volatile uint8_t k = 0; k < (*pt & 0x0F); k++);// Lancer un decalage pour chaque texte envoye'
   #endif
 
-	aes_indep_enc(pt); /* encrypting the data block */
+	aes_indep_enc(active_state); /* encrypting the data block */
 	trigger_low();
 
-    aes_indep_enc_posttrigger(pt);
+    aes_indep_enc_posttrigger(active_state);
+
+    memcpy(pt, active_state, 16);
 
 	simpleserial_put('r', 16, pt);
 	return 0x00;
@@ -147,7 +170,8 @@ int main(void)
     trigger_setup();
 
 	aes_indep_init();
-	aes_indep_key(tmp);
+    memcpy(master_key, tmp, 16);
+	aes_indep_key(master_key);
 
     /* Uncomment this to get a HELLO message for debug */
 
