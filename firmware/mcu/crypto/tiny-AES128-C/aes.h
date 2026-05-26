@@ -6,10 +6,20 @@
 #include <stdint.h>
 
 #ifndef AES_CONST_VAR
+#if defined(USE_SPATIAL_HIDING)
+/* Runtime hiding: AES_CONST_VAR must be empty so buffers live in RAM */
+#define AES_CONST_VAR
+#elif defined(USE_CCM) || defined(USE_CCM_SBOX)
+#define AES_CONST_VAR __attribute__((section(".ccmram")))
+#else
+//#define AES_CONST_VAR static const
 #define AES_CONST_VAR
 #endif
+#endif
 
+#ifdef USE_SPATIAL_HIDING
 void AES128_set_config(uint8_t config);
+#endif
 
 void AES128_ECB_encrypt(uint8_t* input, uint8_t* key, uint8_t *output);
 void AES128_ECB_decrypt(uint8_t* input, uint8_t* key, uint8_t *output);

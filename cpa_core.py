@@ -369,43 +369,15 @@ def cpa_attack_full(traces, plaintexts, known_key=None):
 # DPA ATTACK MODULE
 # =============================================================
 TARGET_BIT = 0
-'''
-def _compute_selection_matrix(plaintexts_byte: np.ndarray, bit: int = TARGET_BIT) -> np.ndarray:
-    """Modèle DPA : Cible un seul bit (0 ou 1) au lieu du poids de Hamming."""
-    n_traces = len(plaintexts_byte)
-    selection_matrix = np.zeros((n_traces, 256), dtype=np.uint8)
-    for key_guess in range(256):
-        sbox_out = SBOX[plaintexts_byte ^ key_guess]
-        selection_matrix[:, key_guess] = (sbox_out >> bit) & 1 #select the bit to store
-    return selection_matrix
-'''
-#alternantive
-def _compute_selection_matrix(plaintexts_byte: np.ndarray, bit: int = 0) -> np.ndarray:
-    """Modèle DPA Multi-Bit : Trie par poids de Hamming fort (>4) vs faible (<4)."""
-    n_traces = len(plaintexts_byte)
-    
-    # On initialise la matrice avec -1. 
-    # Les traces avec un HW exactement égal à 4 garderont cette valeur -1 
-    # et seront automatiquement ignorées par la suite.
-    selection_matrix = np.full((n_traces, 256), -1, dtype=np.int8) 
-    
-    for key_guess in range(256):
-        sbox_out = SBOX[plaintexts_byte ^ key_guess]
-        hw = HW_TABLE[sbox_out]
-        
-        # Poids fort (5, 6, 7, 8) -> Groupe 1
-        selection_matrix[hw > 4, key_guess] = 1
-        
-        # Poids faible (0, 1, 2, 3) -> Groupe 0
-        selection_matrix[hw < 4, key_guess] = 0
-        
-    return selection_matrix
-def _compute_difference_of_means(selection_matrix: np.ndarray, traces: np.ndarray) -> np.ndarray:
+
+
+
+def _compute_difference_of_means(plaintext_bytes: np.ndarray, traces: np.ndarray, bit: int = 0) -> np.ndarray:
     """Moteur Statistique DPA."""
     #initialize the dpa matrix with zeros
     dpa_matrix = np.zeros((256, traces.shape[1]), dtype=np.float64)
     for key_guess in range(256):
-        bits = selection_matrix[:, key_guess]#select the column corresponding to the current key guess
+        bits = (SBOX[plaintext_bytes ^ key_guess] >> bit) & 1#select the column corresponding to the current key guess
         #group the traces into two groups based on the bit value
         group_1 = traces[bits == 1]
         group_0 = traces[bits == 0]
@@ -425,9 +397,9 @@ def dpa_attack(traces: np.ndarray, plaintexts: np.ndarray, byte: int = 0, known_
 
     plaintext_bytes = plaintexts[:, byte].astype(np.uint8)
     #selection of the wanted plaintexte
-    selection_matrix = _compute_selection_matrix(plaintext_bytes)
+    #selection_matrix = _compute_selection_matrix(plaintext_bytes)
     #mean difference of the traces
-    dpa_curves = _compute_difference_of_means(selection_matrix, traces)
+    dpa_curves = _compute_difference_of_means(plaintext_bytes, traces)
     
     max_dpa_per_key = dpa_curves.max(axis=1)#axis=1 means take the maximum for each row
     best_key = int(np.argmax(max_dpa_per_key))

@@ -23,6 +23,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#ifdef USE_SPATIAL_HIDING
 void AES128_set_config(uint8_t config);
 
 static uint32_t lfsr = 0xACE1u;
@@ -35,6 +36,7 @@ static uint32_t prng(void) {
 static uint8_t state_sram[16];
 static uint8_t state_ccm[16] __attribute__((section(".ccmram")));
 static uint8_t master_key[16];
+#endif
 
 uint8_t get_mask(uint8_t* m, uint8_t len)
 {
@@ -44,35 +46,51 @@ uint8_t get_mask(uint8_t* m, uint8_t len)
 
 uint8_t get_key(uint8_t* k, uint8_t len)
 {
+#ifdef USE_SPATIAL_HIDING
     memcpy(master_key, k, 16);
-	aes_indep_key(master_key);
+    aes_indep_key(master_key);
+#else
+	aes_indep_key(k);
+#endif
 	return 0x00;
 }
 
 uint8_t get_pt(uint8_t* pt, uint8_t len)
 {
+#ifdef USE_SPATIAL_HIDING
+    // 1. Random 3-bit config (0..7)
     uint8_t config = prng() & 0x07;
+    // 2. Route active pointers to SRAM or CCM
     AES128_set_config(config);
+    // 3. Re-expand key into the selected buffer
     aes_indep_key(master_key);
-    
+    // 4. Select active state buffer
     uint8_t* active_state = (config & 0x04) ? state_ccm : state_sram;
     memcpy(active_state, pt, 16);
 
     aes_indep_enc_pretrigger(active_state);
 
 	trigger_high();
-
   #ifdef ADD_JITTER
-  for (volatile uint8_t k = 0; k < (*pt & 0x0F); k++);// Lancer un decalage pour chaque texte envoye'
+  for (volatile uint8_t k = 0; k < (*pt & 0x0F); k++);
   #endif
-
-	aes_indep_enc(active_state); /* encrypting the data block */
+	aes_indep_enc(active_state);
 	trigger_low();
 
     aes_indep_enc_posttrigger(active_state);
-
     memcpy(pt, active_state, 16);
+#else
+    aes_indep_enc_pretrigger(pt);
 
+	trigger_high();
+  #ifdef ADD_JITTER
+  for (volatile uint8_t k = 0; k < (*pt & 0x0F); k++);// Lancer un decalage pour chaque texte envoye'
+  #endif
+	aes_indep_enc(pt);
+	trigger_low();
+
+    aes_indep_enc_posttrigger(pt);
+#endif
 	simpleserial_put('r', 16, pt);
 	return 0x00;
 }
@@ -170,8 +188,12 @@ int main(void)
     trigger_setup();
 
 	aes_indep_init();
+#ifdef USE_SPATIAL_HIDING
     memcpy(master_key, tmp, 16);
-	aes_indep_key(master_key);
+    aes_indep_key(master_key);
+#else
+	aes_indep_key(tmp);
+#endif
 
     /* Uncomment this to get a HELLO message for debug */
 

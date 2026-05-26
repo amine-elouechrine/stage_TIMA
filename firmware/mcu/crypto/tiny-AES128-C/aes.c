@@ -68,9 +68,15 @@ typedef uint8_t state_t[4][4];
 static state_t* state;
 
 // The array that stores the round keys.
+#ifdef USE_SPATIAL_HIDING
 static uint8_t RoundKey_sram[176];
 static uint8_t RoundKey_ccm[176] __attribute__((section(".ccmram")));
 static uint8_t* active_roundkey = RoundKey_sram;
+#define RK active_roundkey
+#else
+static uint8_t RoundKey[176];
+#define RK RoundKey
+#endif
 
 static uint8_t input_save[16];
 
@@ -80,11 +86,17 @@ static uint8_t* Key;
 // The lookup-tables are marked const so they can be placed in read-only storage instead of RAM
 // The numbers below can be computed dynamically trading ROM for RAM - 
 // This can be useful in (embedded) bootloader applications, where ROM is often limited.
+#ifdef USE_SPATIAL_HIDING
 static uint8_t sbox_sram[256];
 static uint8_t sbox_ccm[256] __attribute__((section(".ccmram")));
 static uint8_t* active_sbox = sbox_sram;
+#define SBOX_GET(x) active_sbox[(x)]
 
 static const uint8_t sbox_ref[256] =   {
+#else
+AES_CONST_VAR uint8_t sbox[256] =   {
+#define SBOX_GET(x) sbox[(x)]
+#endif
   //0     1    2      3     4    5     6     7      8    9     A      B    C     D     E     F
   0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76,
   0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0, 0xad, 0xd4, 0xa2, 0xaf, 0x9c, 0xa4, 0x72, 0xc0,
@@ -135,7 +147,7 @@ AES_CONST_VAR uint8_t Rcon[11] = {
 /*****************************************************************************/
 static uint8_t getSBoxValue(uint8_t num)
 {
-  return active_sbox[num];
+  return SBOX_GET(num);
 }
 
 static uint8_t getSBoxInvert(uint8_t num)
@@ -152,10 +164,10 @@ static void KeyExpansion(void)
   // The first round key is the key itself.
   for(i = 0; i < Nk; ++i)
   {
-    active_roundkey[(i * 4) + 0] = Key[(i * 4) + 0];
-    active_roundkey[(i * 4) + 1] = Key[(i * 4) + 1];
-    active_roundkey[(i * 4) + 2] = Key[(i * 4) + 2];
-    active_roundkey[(i * 4) + 3] = Key[(i * 4) + 3];
+    RK[(i * 4) + 0] = Key[(i * 4) + 0];
+    RK[(i * 4) + 1] = Key[(i * 4) + 1];
+    RK[(i * 4) + 2] = Key[(i * 4) + 2];
+    RK[(i * 4) + 3] = Key[(i * 4) + 3];
   }
 
   // All other round keys are found from the previous round keys.
@@ -163,7 +175,7 @@ static void KeyExpansion(void)
   {
     for(j = 0; j < 4; ++j)
     {
-      tempa[j]=active_roundkey[(i-1) * 4 + j];
+      tempa[j]=RK[(i-1) * 4 + j];
     }
     if (i % Nk == 0)
     {
@@ -202,10 +214,10 @@ static void KeyExpansion(void)
         tempa[3] = getSBoxValue(tempa[3]);
       }
     }
-    active_roundkey[i * 4 + 0] = active_roundkey[(i - Nk) * 4 + 0] ^ tempa[0];
-    active_roundkey[i * 4 + 1] = active_roundkey[(i - Nk) * 4 + 1] ^ tempa[1];
-    active_roundkey[i * 4 + 2] = active_roundkey[(i - Nk) * 4 + 2] ^ tempa[2];
-    active_roundkey[i * 4 + 3] = active_roundkey[(i - Nk) * 4 + 3] ^ tempa[3];
+    RK[i * 4 + 0] = RK[(i - Nk) * 4 + 0] ^ tempa[0];
+    RK[i * 4 + 1] = RK[(i - Nk) * 4 + 1] ^ tempa[1];
+    RK[i * 4 + 2] = RK[(i - Nk) * 4 + 2] ^ tempa[2];
+    RK[i * 4 + 3] = RK[(i - Nk) * 4 + 3] ^ tempa[3];
   }
 }
 
@@ -218,7 +230,7 @@ static void AddRoundKey(uint8_t round)
   {
     for(j = 0; j < 4; ++j)
     {
-      (*state)[i][j] ^= active_roundkey[round * Nb * 4 + i * Nb + j];
+      (*state)[i][j] ^= RK[round * Nb * 4 + i * Nb + j];
     }
   }
 }
@@ -551,17 +563,16 @@ void AES128_ECB_decrypt(uint8_t* input, uint8_t* key, uint8_t *output)
   InvCipher();
 }
 
+#ifdef USE_SPATIAL_HIDING
 void AES128_set_config(uint8_t config)
 {
   static uint8_t initialized = 0;
   if (!initialized) {
     memcpy(sbox_sram, sbox_ref, 256);
-    memcpy(sbox_ccm, sbox_ref, 256);
+    memcpy(sbox_ccm,  sbox_ref, 256);
     initialized = 1;
   }
-  
   active_roundkey = (config & 0x01) ? RoundKey_ccm : RoundKey_sram;
-  active_sbox = (config & 0x02) ? sbox_ccm : sbox_sram;
+  active_sbox     = (config & 0x02) ? sbox_ccm     : sbox_sram;
 }
-
-
+#endif
