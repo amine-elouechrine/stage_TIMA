@@ -6,8 +6,6 @@ Archive member included to satisfy reference by file (symbol)
                               /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o (__libc_init_array)
 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memset.o)
                               /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o (memset)
-/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy.o)
-                              objdir-CW308_STM32F3/aes.o (memcpy)
 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-impure.o)
                               /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-errno.o) (_impure_ptr)
 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-exit.o)
@@ -72,8 +70,11 @@ Discarded input sections
  .ARM.attributes
                 0x00000000       0x1c /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o
  .text          0x00000000        0x0 objdir-CW308_STM32F3/simpleserial-aes.o
+ .data          0x00000000        0x2 objdir-CW308_STM32F3/simpleserial-aes.o
+ .bss           0x00000000        0x0 objdir-CW308_STM32F3/simpleserial-aes.o
  .text.get_mask
                 0x00000000        0xa objdir-CW308_STM32F3/simpleserial-aes.o
+ .text.get_key  0x00000000        0xa objdir-CW308_STM32F3/simpleserial-aes.o
  .text.reset    0x00000000        0x4 objdir-CW308_STM32F3/simpleserial-aes.o
  .text.enc_multi_getpt
                 0x00000000       0x3c objdir-CW308_STM32F3/simpleserial-aes.o
@@ -146,12 +147,13 @@ Discarded input sections
  .ARM.attributes
                 0x00000000       0x2e objdir-CW308_STM32F3/stm32f3_sysmem.o
  .text          0x00000000        0x0 objdir-CW308_STM32F3/aes.o
+ .data          0x00000000        0x0 objdir-CW308_STM32F3/aes.o
  .text.InvSubBytes
-                0x00000000       0x30 objdir-CW308_STM32F3/aes.o
+                0x00000000       0x34 objdir-CW308_STM32F3/aes.o
  .text.InvShiftRows
                 0x00000000       0x3c objdir-CW308_STM32F3/aes.o
  .text.AES128_ECB_encrypt
-                0x00000000       0x24 objdir-CW308_STM32F3/aes.o
+                0x00000000       0x28 objdir-CW308_STM32F3/aes.o
  .text.AES128_ECB_decrypt
                 0x00000000      0x168 objdir-CW308_STM32F3/aes.o
  .text          0x00000000        0x0 objdir-CW308_STM32F3/aes-independant.o
@@ -190,9 +192,6 @@ Discarded input sections
  .debug_frame   0x00000000       0x2c /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memset.o)
  .ARM.attributes
                 0x00000000       0x2e /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memset.o)
- .data          0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy.o)
- .bss           0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy.o)
- .ARM.extab     0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy.o)
  .text          0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-impure.o)
  .data          0x00000000       0x50 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-impure.o)
  .bss           0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-impure.o)
@@ -520,6 +519,7 @@ Linker script and memory map
 LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crti.o
 LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
 LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o
+                0x2000a000                        _estack = 0x10002000
 LOAD objdir-CW308_STM32F3/simpleserial-aes.o
 LOAD objdir-CW308_STM32F3/simpleserial.o
 LOAD objdir-CW308_STM32F3/hal.o
@@ -559,304 +559,288 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
                 0x08000000                g_pfnVectors
                 0x08000188                        . = ALIGN (0x4)
 
-.text           0x08000188     0x163c
+.text           0x08000188     0x13d0
                 0x08000188                        . = ALIGN (0x4)
  *(.text)
  .text          0x08000188       0x88 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
  .text          0x08000210       0x50 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
                 0x08000210                __libc_init_array
- .text          0x08000260      0x134 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy.o)
-                0x08000260                memcpy
  *(.text*)
- .text.get_key  0x08000394       0x24 objdir-CW308_STM32F3/simpleserial-aes.o
-                0x08000394                get_key
- .text.get_pt   0x080003b8       0x98 objdir-CW308_STM32F3/simpleserial-aes.o
-                0x080003b8                get_pt
- .text.aes      0x08000450       0x5e objdir-CW308_STM32F3/simpleserial-aes.o
-                0x08000450                aes
- *fill*         0x080004ae        0x2 
+ .text.get_pt   0x08000260       0x2a objdir-CW308_STM32F3/simpleserial-aes.o
+                0x08000260                get_pt
+ .text.aes      0x0800028a       0x5c objdir-CW308_STM32F3/simpleserial-aes.o
+                0x0800028a                aes
+ *fill*         0x080002e6        0x2 
  .text.startup.main
-                0x080004b0       0x6c objdir-CW308_STM32F3/simpleserial-aes.o
-                0x080004b0                main
- .text.ss_crc   0x0800051c       0x2c objdir-CW308_STM32F3/simpleserial.o
-                0x0800051c                ss_crc
+                0x080002e8       0x34 objdir-CW308_STM32F3/simpleserial-aes.o
+                0x080002e8                main
+ .text.ss_crc   0x0800031c       0x2c objdir-CW308_STM32F3/simpleserial.o
+                0x0800031c                ss_crc
  .text.stuff_data
-                0x08000548       0x22 objdir-CW308_STM32F3/simpleserial.o
-                0x08000548                stuff_data
+                0x08000348       0x22 objdir-CW308_STM32F3/simpleserial.o
+                0x08000348                stuff_data
  .text.unstuff_data
-                0x0800056a       0x1e objdir-CW308_STM32F3/simpleserial.o
-                0x0800056a                unstuff_data
+                0x0800036a       0x1e objdir-CW308_STM32F3/simpleserial.o
+                0x0800036a                unstuff_data
  .text.simpleserial_addcmd
-                0x08000588       0x34 objdir-CW308_STM32F3/simpleserial.o
-                0x08000588                simpleserial_addcmd
+                0x08000388       0x34 objdir-CW308_STM32F3/simpleserial.o
+                0x08000388                simpleserial_addcmd
  .text.simpleserial_init
-                0x080005bc       0x24 objdir-CW308_STM32F3/simpleserial.o
-                0x080005bc                simpleserial_init
+                0x080003bc       0x24 objdir-CW308_STM32F3/simpleserial.o
+                0x080003bc                simpleserial_init
  .text.simpleserial_put
-                0x080005e0       0x5c objdir-CW308_STM32F3/simpleserial.o
-                0x080005e0                simpleserial_put
+                0x080003e0       0x5c objdir-CW308_STM32F3/simpleserial.o
+                0x080003e0                simpleserial_put
  .text.check_version
-                0x0800063c       0x1c objdir-CW308_STM32F3/simpleserial.o
-                0x0800063c                check_version
+                0x0800043c       0x1c objdir-CW308_STM32F3/simpleserial.o
+                0x0800043c                check_version
  .text.ss_get_commands
-                0x08000658       0x3c objdir-CW308_STM32F3/simpleserial.o
-                0x08000658                ss_get_commands
+                0x08000458       0x3c objdir-CW308_STM32F3/simpleserial.o
+                0x08000458                ss_get_commands
  .text.simpleserial_get
-                0x08000694       0xf0 objdir-CW308_STM32F3/simpleserial.o
-                0x08000694                simpleserial_get
+                0x08000494       0xf0 objdir-CW308_STM32F3/simpleserial.o
+                0x08000494                simpleserial_get
  .text.platform_init
-                0x08000784       0x7c objdir-CW308_STM32F3/stm32f3_hal.o
-                0x08000784                platform_init
+                0x08000584       0x7c objdir-CW308_STM32F3/stm32f3_hal.o
+                0x08000584                platform_init
  .text.init_uart
-                0x08000800       0x7c objdir-CW308_STM32F3/stm32f3_hal.o
-                0x08000800                init_uart
+                0x08000600       0x7c objdir-CW308_STM32F3/stm32f3_hal.o
+                0x08000600                init_uart
  .text.trigger_setup
-                0x0800087c       0x48 objdir-CW308_STM32F3/stm32f3_hal.o
-                0x0800087c                trigger_setup
+                0x0800067c       0x48 objdir-CW308_STM32F3/stm32f3_hal.o
+                0x0800067c                trigger_setup
  .text.trigger_high
-                0x080008c4        0xe objdir-CW308_STM32F3/stm32f3_hal.o
-                0x080008c4                trigger_high
+                0x080006c4        0xe objdir-CW308_STM32F3/stm32f3_hal.o
+                0x080006c4                trigger_high
  .text.trigger_low
-                0x080008d2        0xe objdir-CW308_STM32F3/stm32f3_hal.o
-                0x080008d2                trigger_low
- .text.getch    0x080008e0       0x30 objdir-CW308_STM32F3/stm32f3_hal.o
-                0x080008e0                getch
- .text.putch    0x08000910       0x20 objdir-CW308_STM32F3/stm32f3_hal.o
-                0x08000910                putch
+                0x080006d2        0xe objdir-CW308_STM32F3/stm32f3_hal.o
+                0x080006d2                trigger_low
+ .text.getch    0x080006e0       0x30 objdir-CW308_STM32F3/stm32f3_hal.o
+                0x080006e0                getch
+ .text.putch    0x08000710       0x20 objdir-CW308_STM32F3/stm32f3_hal.o
+                0x08000710                putch
  .text.HAL_GetTick
-                0x08000930       0x10 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
-                0x08000930                HAL_GetTick
+                0x08000730       0x10 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+                0x08000730                HAL_GetTick
  .text.HAL_RCC_OscConfig
-                0x08000940      0x48c objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
-                0x08000940                HAL_RCC_OscConfig
+                0x08000740      0x48c objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+                0x08000740                HAL_RCC_OscConfig
  .text.HAL_RCC_ClockConfig
-                0x08000dcc      0x140 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
-                0x08000dcc                HAL_RCC_ClockConfig
+                0x08000bcc      0x140 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+                0x08000bcc                HAL_RCC_ClockConfig
  .text.HAL_GPIO_Init
-                0x08000f0c      0x17c objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
-                0x08000f0c                HAL_GPIO_Init
+                0x08000d0c      0x17c objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+                0x08000d0c                HAL_GPIO_Init
  .text.HAL_GPIO_WritePin
-                0x08001088        0xa objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
-                0x08001088                HAL_GPIO_WritePin
- *fill*         0x08001092        0x2 
+                0x08000e88        0xa objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+                0x08000e88                HAL_GPIO_WritePin
+ *fill*         0x08000e92        0x2 
  .text.UART_SetConfig
-                0x08001094      0x15c objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
-                0x08001094                UART_SetConfig
+                0x08000e94      0x15c objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+                0x08000e94                UART_SetConfig
  .text.UART_WaitOnFlagUntilTimeout
-                0x080011f0       0x62 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
-                0x080011f0                UART_WaitOnFlagUntilTimeout
+                0x08000ff0       0x62 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+                0x08000ff0                UART_WaitOnFlagUntilTimeout
  .text.UART_CheckIdleState
-                0x08001252       0x62 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
-                0x08001252                UART_CheckIdleState
+                0x08001052       0x62 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+                0x08001052                UART_CheckIdleState
  .text.HAL_UART_Init
-                0x080012b4       0x54 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
-                0x080012b4                HAL_UART_Init
+                0x080010b4       0x54 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+                0x080010b4                HAL_UART_Init
  .text.HAL_UART_Transmit
-                0x08001308       0xac objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
-                0x08001308                HAL_UART_Transmit
+                0x08001108       0xac objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+                0x08001108                HAL_UART_Transmit
  .text.HAL_UART_Receive
-                0x080013b4       0xd6 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
-                0x080013b4                HAL_UART_Receive
- *fill*         0x0800148a        0x2 
+                0x080011b4       0xd6 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+                0x080011b4                HAL_UART_Receive
+ *fill*         0x0800128a        0x2 
  .text.KeyExpansion
-                0x0800148c       0xac objdir-CW308_STM32F3/aes.o
+                0x0800128c       0xac objdir-CW308_STM32F3/aes.o
  .text.AddRoundKey
-                0x08001538       0x38 objdir-CW308_STM32F3/aes.o
+                0x08001338       0x34 objdir-CW308_STM32F3/aes.o
  .text.SubBytes
-                0x08001570       0x30 objdir-CW308_STM32F3/aes.o
+                0x0800136c       0x30 objdir-CW308_STM32F3/aes.o
  .text.ShiftRows
-                0x080015a0       0x3c objdir-CW308_STM32F3/aes.o
- .text.xtime    0x080015dc       0x12 objdir-CW308_STM32F3/aes.o
- *fill*         0x080015ee        0x2 
- .text.Cipher   0x080015f0       0x98 objdir-CW308_STM32F3/aes.o
+                0x0800139c       0x3c objdir-CW308_STM32F3/aes.o
+ .text.xtime    0x080013d8       0x12 objdir-CW308_STM32F3/aes.o
+ *fill*         0x080013ea        0x2 
+ .text.Cipher   0x080013ec       0x98 objdir-CW308_STM32F3/aes.o
  .text.BlockCopy
-                0x08001688       0x14 objdir-CW308_STM32F3/aes.o
+                0x08001484       0x14 objdir-CW308_STM32F3/aes.o
  .text.AES128_ECB_indp_setkey
-                0x0800169c        0xc objdir-CW308_STM32F3/aes.o
-                0x0800169c                AES128_ECB_indp_setkey
+                0x08001498        0xc objdir-CW308_STM32F3/aes.o
+                0x08001498                AES128_ECB_indp_setkey
  .text.AES128_ECB_indp_crypto
-                0x080016a8       0x1c objdir-CW308_STM32F3/aes.o
-                0x080016a8                AES128_ECB_indp_crypto
- .text.AES128_set_config
-                0x080016c4       0x68 objdir-CW308_STM32F3/aes.o
-                0x080016c4                AES128_set_config
+                0x080014a4       0x1c objdir-CW308_STM32F3/aes.o
+                0x080014a4                AES128_ECB_indp_crypto
  .text.aes_indep_init
-                0x0800172c        0x2 objdir-CW308_STM32F3/aes-independant.o
-                0x0800172c                aes_indep_init
+                0x080014c0        0x2 objdir-CW308_STM32F3/aes-independant.o
+                0x080014c0                aes_indep_init
  .text.aes_indep_key
-                0x0800172e        0x4 objdir-CW308_STM32F3/aes-independant.o
-                0x0800172e                aes_indep_key
+                0x080014c2        0x4 objdir-CW308_STM32F3/aes-independant.o
+                0x080014c2                aes_indep_key
  .text.aes_indep_enc
-                0x08001732        0x4 objdir-CW308_STM32F3/aes-independant.o
-                0x08001732                aes_indep_enc
+                0x080014c6        0x4 objdir-CW308_STM32F3/aes-independant.o
+                0x080014c6                aes_indep_enc
  .text.aes_indep_enc_pretrigger
-                0x08001736        0x2 objdir-CW308_STM32F3/aes-independant.o
-                0x08001736                aes_indep_enc_pretrigger
+                0x080014ca        0x2 objdir-CW308_STM32F3/aes-independant.o
+                0x080014ca                aes_indep_enc_pretrigger
  .text.aes_indep_enc_posttrigger
-                0x08001738        0x2 objdir-CW308_STM32F3/aes-independant.o
-                0x08001738                aes_indep_enc_posttrigger
+                0x080014cc        0x2 objdir-CW308_STM32F3/aes-independant.o
+                0x080014cc                aes_indep_enc_posttrigger
  .text.aes_indep_mask
-                0x0800173a        0x2 objdir-CW308_STM32F3/aes-independant.o
-                0x0800173a                aes_indep_mask
+                0x080014ce        0x2 objdir-CW308_STM32F3/aes-independant.o
+                0x080014ce                aes_indep_mask
  .text.Reset_Handler
-                0x0800173c       0x6c objdir-CW308_STM32F3/stm32f3_startup.o
-                0x0800173c                Reset_Handler
+                0x080014d0       0x6c objdir-CW308_STM32F3/stm32f3_startup.o
+                0x080014d0                Reset_Handler
  .text.Default_Handler
-                0x080017a8        0x2 objdir-CW308_STM32F3/stm32f3_startup.o
-                0x080017a8                DebugMon_Handler
-                0x080017a8                HardFault_Handler
-                0x080017a8                SysTick_Handler
-                0x080017a8                PendSV_Handler
-                0x080017a8                NMI_Handler
-                0x080017a8                UsageFault_Handler
-                0x080017a8                Default_Handler
-                0x080017a8                MemManage_Handler
-                0x080017a8                SVC_Handler
-                0x080017a8                BusFault_Handler
+                0x0800153c        0x2 objdir-CW308_STM32F3/stm32f3_startup.o
+                0x0800153c                DebugMon_Handler
+                0x0800153c                HardFault_Handler
+                0x0800153c                SysTick_Handler
+                0x0800153c                PendSV_Handler
+                0x0800153c                NMI_Handler
+                0x0800153c                UsageFault_Handler
+                0x0800153c                Default_Handler
+                0x0800153c                MemManage_Handler
+                0x0800153c                SVC_Handler
+                0x0800153c                BusFault_Handler
  *(.glue_7)
- .glue_7        0x080017aa        0x0 linker stubs
+ .glue_7        0x0800153e        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x080017aa        0x0 linker stubs
+ .glue_7t       0x0800153e        0x0 linker stubs
  *(.eh_frame)
- *fill*         0x080017aa        0x2 
- .eh_frame      0x080017ac        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+ *fill*         0x0800153e        0x2 
+ .eh_frame      0x08001540        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
  *(.init)
- .init          0x080017ac        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crti.o
-                0x080017ac                _init
- .init          0x080017b0        0x8 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
+ .init          0x08001540        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crti.o
+                0x08001540                _init
+ .init          0x08001544        0x8 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
  *(.fini)
- .fini          0x080017b8        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crti.o
-                0x080017b8                _fini
- .fini          0x080017bc        0x8 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
-                0x080017c4                        . = ALIGN (0x4)
-                0x080017c4                        _etext = .
+ .fini          0x0800154c        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crti.o
+                0x0800154c                _fini
+ .fini          0x08001550        0x8 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
+                0x08001558                        . = ALIGN (0x4)
+                0x08001558                        _etext = .
 
-.vfp11_veneer   0x080017c4        0x0
- .vfp11_veneer  0x080017c4        0x0 linker stubs
+.vfp11_veneer   0x08001558        0x0
+ .vfp11_veneer  0x08001558        0x0 linker stubs
 
-.v4_bx          0x080017c4        0x0
- .v4_bx         0x080017c4        0x0 linker stubs
+.v4_bx          0x08001558        0x0
+ .v4_bx         0x08001558        0x0 linker stubs
 
-.iplt           0x080017c4        0x0
- .iplt          0x080017c4        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+.iplt           0x08001558        0x0
+ .iplt          0x08001558        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
 
-.rodata         0x080017c4      0x114
-                0x080017c4                        . = ALIGN (0x4)
+.rel.dyn        0x08001558        0x0
+ .rel.iplt      0x08001558        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+
+.rodata         0x08001558        0x0
+                0x08001558                        . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x080017c4      0x100 objdir-CW308_STM32F3/aes.o
  *(.rodata*)
- .rodata.str1.1
-                0x080018c4       0x11 objdir-CW308_STM32F3/simpleserial-aes.o
-                0x080018d8                        . = ALIGN (0x4)
- *fill*         0x080018d5        0x3 
+                0x08001558                        . = ALIGN (0x4)
 
-.ARM.extab      0x080018d8        0x0
-                0x080018d8                        . = ALIGN (0x4)
+.ARM.extab      0x08001558        0x0
+                0x08001558                        . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x080018d8                        . = ALIGN (0x4)
+                0x08001558                        . = ALIGN (0x4)
 
-.ARM            0x080018d8        0x8
-                0x080018d8                        . = ALIGN (0x4)
-                0x080018d8                        __exidx_start = .
+.ARM            0x08001558        0x0
+                0x08001558                        . = ALIGN (0x4)
+                0x08001558                        __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x080018d8        0x8 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy.o)
-                0x080018e0                        __exidx_end = .
-                0x080018e0                        . = ALIGN (0x4)
+                0x08001558                        __exidx_end = .
+                0x08001558                        . = ALIGN (0x4)
 
-.rel.dyn        0x080018e0        0x0
- .rel.iplt      0x080018e0        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
-
-.preinit_array  0x080018e0        0x0
-                0x080018e0                        . = ALIGN (0x4)
-                0x080018e0                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x08001558        0x0
+                0x08001558                        . = ALIGN (0x4)
+                0x08001558                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x080018e0                        PROVIDE (__preinit_array_end = .)
-                0x080018e0                        . = ALIGN (0x4)
+                0x08001558                        PROVIDE (__preinit_array_end = .)
+                0x08001558                        . = ALIGN (0x4)
 
-.init_array     0x080018e0        0x4
-                0x080018e0                        . = ALIGN (0x4)
-                0x080018e0                        PROVIDE (__init_array_start = .)
+.init_array     0x08001558        0x4
+                0x08001558                        . = ALIGN (0x4)
+                0x08001558                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x080018e0        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
-                0x080018e4                        PROVIDE (__init_array_end = .)
-                0x080018e4                        . = ALIGN (0x4)
+ .init_array    0x08001558        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+                0x0800155c                        PROVIDE (__init_array_end = .)
+                0x0800155c                        . = ALIGN (0x4)
 
-.fini_array     0x080018e4        0x4
-                0x080018e4                        . = ALIGN (0x4)
-                0x080018e4                        PROVIDE (__fini_array_start = .)
+.fini_array     0x0800155c        0x4
+                0x0800155c                        . = ALIGN (0x4)
+                0x0800155c                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x080018e4        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
-                0x080018e8                        PROVIDE (__fini_array_end = .)
-                0x080018e8                        . = ALIGN (0x4)
-                0x080018e8                        _sidata = LOADADDR (.data)
+ .fini_array    0x0800155c        0x4 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+                0x08001560                        PROVIDE (__fini_array_end = .)
+                0x08001560                        . = ALIGN (0x4)
+                0x08001560                        _sidata = LOADADDR (.data)
 
-.data           0x20000000      0x11c load address 0x080018e8
+.data           0x20000000        0x0 load address 0x08001560
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
- .data          0x20000000        0x6 objdir-CW308_STM32F3/simpleserial-aes.o
- *fill*         0x20000006        0x2 
- .data          0x20000008      0x113 objdir-CW308_STM32F3/aes.o
-                0x20000010                Rcon
-                0x2000001b                rsbox
  *(.data*)
-                0x2000011c                        . = ALIGN (0x4)
- *fill*         0x2000011b        0x1 
-                0x2000011c                        _edata = .
-                0x08001a04                        _siccmram = LOADADDR (.ccmram)
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _edata = .
+                0x08001560                        _siccmram = LOADADDR (.ccmram)
 
 .tm_clone_table
-                0x2000011c        0x0 load address 0x08001a04
+                0x20000000        0x0 load address 0x08001560
  .tm_clone_table
-                0x2000011c        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+                0x20000000        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
  .tm_clone_table
-                0x2000011c        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtend.o
+                0x20000000        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtend.o
 
-.igot.plt       0x2000011c        0x0 load address 0x08001a04
- .igot.plt      0x2000011c        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+.igot.plt       0x20000000        0x0 load address 0x08001560
+ .igot.plt      0x20000000        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
 
-.ccmram         0x10000000      0x1c0 load address 0x08001a04
+.ccmram         0x10000000      0x21c load address 0x08001560
                 0x10000000                        . = ALIGN (0x4)
                 0x10000000                        _sccmram = .
  *(.ccmram)
  .ccmram        0x10000000       0x10 objdir-CW308_STM32F3/simpleserial-aes.o
- .ccmram        0x10000010      0x1b0 objdir-CW308_STM32F3/aes.o
+ .ccmram        0x10000010      0x20b objdir-CW308_STM32F3/aes.o
+                0x10000010                sbox
+                0x10000110                Rcon
+                0x1000011b                rsbox
  *(.ccmram*)
-                0x100001c0                        . = ALIGN (0x4)
-                0x100001c0                        _eccmram = .
-                0x100001c0                        . = ALIGN (0x4)
+                0x1000021c                        . = ALIGN (0x4)
+ *fill*         0x1000021b        0x1 
+                0x1000021c                        _eccmram = .
+                0x1000021c                        . = ALIGN (0x4)
 
-.bss            0x2000011c      0x404
-                0x2000011c                        _sbss = .
-                0x2000011c                        __bss_start__ = _sbss
+.bss            0x20000000      0x2e0
+                0x20000000                        _sbss = .
+                0x20000000                        __bss_start__ = _sbss
  *(.bss)
- .bss           0x2000011c       0x1c /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
- .bss           0x20000138       0x20 objdir-CW308_STM32F3/simpleserial-aes.o
- .bss           0x20000158      0x184 objdir-CW308_STM32F3/simpleserial.o
- .bss           0x200002dc       0x70 objdir-CW308_STM32F3/stm32f3_hal.o
-                0x200002dc                UartHandle
- .bss           0x2000034c        0x8 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
-                0x2000034c                hal_sys_tick
-                0x20000350                uwTick
- .bss           0x20000354      0x1c9 objdir-CW308_STM32F3/aes.o
+ .bss           0x20000000       0x1c /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtbegin.o
+ .bss           0x2000001c      0x184 objdir-CW308_STM32F3/simpleserial.o
+ .bss           0x200001a0       0x70 objdir-CW308_STM32F3/stm32f3_hal.o
+                0x200001a0                UartHandle
+ .bss           0x20000210        0x8 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+                0x20000210                hal_sys_tick
+                0x20000214                uwTick
+ .bss           0x20000218       0xc8 objdir-CW308_STM32F3/aes.o
  *(.bss*)
  *(COMMON)
-                0x20000520                        . = ALIGN (0x4)
- *fill*         0x2000051d        0x3 
-                0x20000520                        _ebss = .
-                0x20000520                        __bss_end__ = _ebss
+                0x200002e0                        . = ALIGN (0x4)
+                0x200002e0                        _ebss = .
+                0x200002e0                        __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x20000520      0x400
-                0x20000520                        . = ALIGN (0x8)
-                0x20000520                        PROVIDE (end = .)
+                0x200002e0      0x400
+                0x200002e0                        . = ALIGN (0x8)
+                0x200002e0                        PROVIDE (end = .)
                 [!provide]                        PROVIDE (_end = .)
-                0x20000520                        . = (. + _Min_Heap_Size)
-                0x20000920                        . = (. + _Min_Stack_Size)
- *fill*         0x20000520      0x400 
-                0x20000920                        . = ALIGN (0x8)
+                0x200002e0                        . = (. + _Min_Heap_Size)
+                0x200006e0                        . = (. + _Min_Stack_Size)
+ *fill*         0x200002e0      0x400 
+                0x200006e0                        . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)
@@ -887,11 +871,9 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
  .ARM.attributes
                 0x00000181       0x2e /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
  .ARM.attributes
-                0x000001af       0x1c /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy.o)
+                0x000001af       0x2e /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtend.o
  .ARM.attributes
-                0x000001cb       0x2e /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtend.o
- .ARM.attributes
-                0x000001f9       0x1e /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
+                0x000001dd       0x1e /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtn.o
 OUTPUT(simpleserial-aes-CW308_STM32F3.elf elf32-littlearm)
 LOAD linker stubs
 LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a
@@ -918,35 +900,33 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/libgcc.a
  .comment       0x0000004c        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/crtend.o
                                  0x27 (size before relaxing)
 
-.debug_info     0x00000000     0x52d5
- .debug_info    0x00000000      0x7c1 objdir-CW308_STM32F3/simpleserial-aes.o
- .debug_info    0x000007c1      0x7ef objdir-CW308_STM32F3/simpleserial.o
- .debug_info    0x00000fb0      0xf30 objdir-CW308_STM32F3/stm32f3_hal.o
- .debug_info    0x00001ee0     0x24b4 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
- .debug_info    0x00004394      0xc0e objdir-CW308_STM32F3/aes.o
- .debug_info    0x00004fa2      0x1f5 objdir-CW308_STM32F3/aes-independant.o
- .debug_info    0x00005197      0x10b /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
- .debug_info    0x000052a2       0x33 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy.o)
+.debug_info     0x00000000     0x4fba
+ .debug_info    0x00000000      0x6df objdir-CW308_STM32F3/simpleserial-aes.o
+ .debug_info    0x000006df      0x7ef objdir-CW308_STM32F3/simpleserial.o
+ .debug_info    0x00000ece      0xf30 objdir-CW308_STM32F3/stm32f3_hal.o
+ .debug_info    0x00001dfe     0x24b4 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+ .debug_info    0x000042b2      0xa08 objdir-CW308_STM32F3/aes.o
+ .debug_info    0x00004cba      0x1f5 objdir-CW308_STM32F3/aes-independant.o
+ .debug_info    0x00004eaf      0x10b /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
 
-.debug_abbrev   0x00000000     0x10cb
- .debug_abbrev  0x00000000      0x286 objdir-CW308_STM32F3/simpleserial-aes.o
- .debug_abbrev  0x00000286      0x22f objdir-CW308_STM32F3/simpleserial.o
- .debug_abbrev  0x000004b5      0x24c objdir-CW308_STM32F3/stm32f3_hal.o
- .debug_abbrev  0x00000701      0x478 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
- .debug_abbrev  0x00000b79      0x317 objdir-CW308_STM32F3/aes.o
- .debug_abbrev  0x00000e90      0x14a objdir-CW308_STM32F3/aes-independant.o
- .debug_abbrev  0x00000fda       0xc9 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
- .debug_abbrev  0x000010a3       0x28 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy.o)
+.debug_abbrev   0x00000000     0x1037
+ .debug_abbrev  0x00000000      0x255 objdir-CW308_STM32F3/simpleserial-aes.o
+ .debug_abbrev  0x00000255      0x22f objdir-CW308_STM32F3/simpleserial.o
+ .debug_abbrev  0x00000484      0x24c objdir-CW308_STM32F3/stm32f3_hal.o
+ .debug_abbrev  0x000006d0      0x478 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+ .debug_abbrev  0x00000b48      0x2dc objdir-CW308_STM32F3/aes.o
+ .debug_abbrev  0x00000e24      0x14a objdir-CW308_STM32F3/aes-independant.o
+ .debug_abbrev  0x00000f6e       0xc9 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
 
-.debug_loc      0x00000000     0x2fb9
- .debug_loc     0x00000000      0x517 objdir-CW308_STM32F3/simpleserial-aes.o
- .debug_loc     0x00000517      0x9a8 objdir-CW308_STM32F3/simpleserial.o
- .debug_loc     0x00000ebf      0x1b6 objdir-CW308_STM32F3/stm32f3_hal.o
- .debug_loc     0x00001075     0x1607 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
- .debug_loc     0x0000267c      0x8e7 objdir-CW308_STM32F3/aes.o
- .debug_loc     0x00002f63       0x56 objdir-CW308_STM32F3/aes-independant.o
+.debug_loc      0x00000000     0x2ece
+ .debug_loc     0x00000000      0x484 objdir-CW308_STM32F3/simpleserial-aes.o
+ .debug_loc     0x00000484      0x9a8 objdir-CW308_STM32F3/simpleserial.o
+ .debug_loc     0x00000e2c      0x1b6 objdir-CW308_STM32F3/stm32f3_hal.o
+ .debug_loc     0x00000fe2     0x1607 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+ .debug_loc     0x000025e9      0x88f objdir-CW308_STM32F3/aes.o
+ .debug_loc     0x00002e78       0x56 objdir-CW308_STM32F3/aes-independant.o
 
-.debug_aranges  0x00000000      0x2d8
+.debug_aranges  0x00000000      0x2b0
  .debug_aranges
                 0x00000000       0x58 objdir-CW308_STM32F3/simpleserial-aes.o
  .debug_aranges
@@ -956,59 +936,53 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/libgcc.a
  .debug_aranges
                 0x00000128       0xa0 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
  .debug_aranges
-                0x000001c8       0x88 objdir-CW308_STM32F3/aes.o
+                0x000001c8       0x80 objdir-CW308_STM32F3/aes.o
  .debug_aranges
-                0x00000250       0x48 objdir-CW308_STM32F3/aes-independant.o
+                0x00000248       0x48 objdir-CW308_STM32F3/aes-independant.o
  .debug_aranges
-                0x00000298       0x20 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
- .debug_aranges
-                0x000002b8       0x20 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy.o)
+                0x00000290       0x20 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
 
-.debug_ranges   0x00000000      0x5e0
- .debug_ranges  0x00000000       0x98 objdir-CW308_STM32F3/simpleserial-aes.o
- .debug_ranges  0x00000098       0xf0 objdir-CW308_STM32F3/simpleserial.o
- .debug_ranges  0x00000188       0xc0 objdir-CW308_STM32F3/stm32f3_hal.o
- .debug_ranges  0x00000248      0x210 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
- .debug_ranges  0x00000458      0x150 objdir-CW308_STM32F3/aes.o
- .debug_ranges  0x000005a8       0x38 objdir-CW308_STM32F3/aes-independant.o
+.debug_ranges   0x00000000      0x5c8
+ .debug_ranges  0x00000000       0x90 objdir-CW308_STM32F3/simpleserial-aes.o
+ .debug_ranges  0x00000090       0xf0 objdir-CW308_STM32F3/simpleserial.o
+ .debug_ranges  0x00000180       0xc0 objdir-CW308_STM32F3/stm32f3_hal.o
+ .debug_ranges  0x00000240      0x210 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+ .debug_ranges  0x00000450      0x140 objdir-CW308_STM32F3/aes.o
+ .debug_ranges  0x00000590       0x38 objdir-CW308_STM32F3/aes-independant.o
 
-.debug_line     0x00000000     0x2f24
- .debug_line    0x00000000      0x36b objdir-CW308_STM32F3/simpleserial-aes.o
- .debug_line    0x0000036b      0x5c1 objdir-CW308_STM32F3/simpleserial.o
- .debug_line    0x0000092c      0x346 objdir-CW308_STM32F3/stm32f3_hal.o
- .debug_line    0x00000c72     0x174b objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
- .debug_line    0x000023bd      0x878 objdir-CW308_STM32F3/aes.o
- .debug_line    0x00002c35      0x118 objdir-CW308_STM32F3/aes-independant.o
- .debug_line    0x00002d4d      0x11e /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
- .debug_line    0x00002e6b       0xb9 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy.o)
+.debug_line     0x00000000     0x2d8a
+ .debug_line    0x00000000      0x300 objdir-CW308_STM32F3/simpleserial-aes.o
+ .debug_line    0x00000300      0x5c1 objdir-CW308_STM32F3/simpleserial.o
+ .debug_line    0x000008c1      0x346 objdir-CW308_STM32F3/stm32f3_hal.o
+ .debug_line    0x00000c07     0x174b objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+ .debug_line    0x00002352      0x802 objdir-CW308_STM32F3/aes.o
+ .debug_line    0x00002b54      0x118 objdir-CW308_STM32F3/aes-independant.o
+ .debug_line    0x00002c6c      0x11e /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
 
-.debug_str      0x00000000     0x1758
- .debug_str     0x00000000     0x1758 objdir-CW308_STM32F3/simpleserial-aes.o
-                                0x3d5 (size before relaxing)
- .debug_str     0x00001758        0x0 objdir-CW308_STM32F3/simpleserial.o
+.debug_str      0x00000000     0x165c
+ .debug_str     0x00000000     0x165c objdir-CW308_STM32F3/simpleserial-aes.o
+                                0x375 (size before relaxing)
+ .debug_str     0x0000165c        0x0 objdir-CW308_STM32F3/simpleserial.o
                                 0x32f (size before relaxing)
- .debug_str     0x00001758        0x0 objdir-CW308_STM32F3/stm32f3_hal.o
+ .debug_str     0x0000165c        0x0 objdir-CW308_STM32F3/stm32f3_hal.o
                                 0x953 (size before relaxing)
- .debug_str     0x00001758        0x0 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+ .debug_str     0x0000165c        0x0 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
                                0x1172 (size before relaxing)
- .debug_str     0x00001758        0x0 objdir-CW308_STM32F3/aes.o
-                                0x387 (size before relaxing)
- .debug_str     0x00001758        0x0 objdir-CW308_STM32F3/aes-independant.o
+ .debug_str     0x0000165c        0x0 objdir-CW308_STM32F3/aes.o
+                                0x305 (size before relaxing)
+ .debug_str     0x0000165c        0x0 objdir-CW308_STM32F3/aes-independant.o
                                 0x259 (size before relaxing)
- .debug_str     0x00001758        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
+ .debug_str     0x0000165c        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
                                 0x1f8 (size before relaxing)
- .debug_str     0x00001758        0x0 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy.o)
-                                 0xb0 (size before relaxing)
 
-.debug_frame    0x00000000      0x760
- .debug_frame   0x00000000       0xd0 objdir-CW308_STM32F3/simpleserial-aes.o
- .debug_frame   0x000000d0      0x164 objdir-CW308_STM32F3/simpleserial.o
- .debug_frame   0x00000234       0xec objdir-CW308_STM32F3/stm32f3_hal.o
- .debug_frame   0x00000320      0x1e0 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
- .debug_frame   0x00000500      0x19c objdir-CW308_STM32F3/aes.o
- .debug_frame   0x0000069c       0x70 objdir-CW308_STM32F3/aes-independant.o
- .debug_frame   0x0000070c       0x2c /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
- .debug_frame   0x00000738       0x28 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy.o)
+.debug_frame    0x00000000      0x718
+ .debug_frame   0x00000000       0xcc objdir-CW308_STM32F3/simpleserial-aes.o
+ .debug_frame   0x000000cc      0x164 objdir-CW308_STM32F3/simpleserial.o
+ .debug_frame   0x00000230       0xec objdir-CW308_STM32F3/stm32f3_hal.o
+ .debug_frame   0x0000031c      0x1e0 objdir-CW308_STM32F3/stm32f3_hal_lowlevel.o
+ .debug_frame   0x000004fc      0x180 objdir-CW308_STM32F3/aes.o
+ .debug_frame   0x0000067c       0x70 objdir-CW308_STM32F3/aes-independant.o
+ .debug_frame   0x000006ec       0x2c /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
 
 .stab           0x00000000      0x1c8
  .stab          0x00000000      0x1c8 objdir-CW308_STM32F3/stm32f3_startup.o
@@ -1021,11 +995,6 @@ LOAD /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m/nofp/libgcc.a
  .debug_loclists
                 0x00000000       0x65 /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-init.o)
 
-.debug_line_str
-                0x00000000       0x9a
- .debug_line_str
-                0x00000000       0x9a /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy.o)
-
 Cross Reference Table
 
 Symbol                                            File
@@ -1035,8 +1004,6 @@ AES128_ECB_indp_crypto                            objdir-CW308_STM32F3/aes.o
                                                   objdir-CW308_STM32F3/aes-independant.o
 AES128_ECB_indp_setkey                            objdir-CW308_STM32F3/aes.o
                                                   objdir-CW308_STM32F3/aes-independant.o
-AES128_set_config                                 objdir-CW308_STM32F3/aes.o
-                                                  objdir-CW308_STM32F3/simpleserial-aes.o
 BusFault_Handler                                  objdir-CW308_STM32F3/stm32f3_startup.o
 DebugMon_Handler                                  objdir-CW308_STM32F3/stm32f3_startup.o
 Default_Handler                                   objdir-CW308_STM32F3/stm32f3_startup.o
@@ -1249,8 +1216,6 @@ main                                              objdir-CW308_STM32F3/simpleser
                                                   objdir-CW308_STM32F3/stm32f3_startup.o
                                                   /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o
 malloc                                            /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-__atexit.o)
-memcpy                                            /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memcpy.o)
-                                                  objdir-CW308_STM32F3/aes.o
 memset                                            /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-memset.o)
                                                   /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libg_nano.a(libc_a-findfp.o)
                                                   /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/crt0.o
@@ -1260,6 +1225,7 @@ putch                                             objdir-CW308_STM32F3/stm32f3_h
                                                   objdir-CW308_STM32F3/simpleserial.o
 reset                                             objdir-CW308_STM32F3/simpleserial-aes.o
 rsbox                                             objdir-CW308_STM32F3/aes.o
+sbox                                              objdir-CW308_STM32F3/aes.o
 simpleserial_addcmd                               objdir-CW308_STM32F3/simpleserial.o
                                                   objdir-CW308_STM32F3/simpleserial-aes.o
 simpleserial_get                                  objdir-CW308_STM32F3/simpleserial.o

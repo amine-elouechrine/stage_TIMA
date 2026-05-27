@@ -435,14 +435,26 @@ def find_min_traces(traces, plaintexts, known_key=KNOWN_KEY, attack_fn=None):
     n_total = len(traces)
     checkpoints = []
     n = 2
-    #remove this and the list of checkpoints will be just from 2 to ntotat and there's a plus 2 step
+    checkpoints = []
+    facteur_croissance = 1.5  # Ajustez ceci : 1.2 pour plus de points, 2.0 pour moins de points
+
     while n <= n_total:
-        #plus 2 each step 
         checkpoints.append(n)
-        n += 2
-    print("checkpoints list:  ",checkpoints)
-    if checkpoints[-1] != n_total:
-        checkpoints.append(n_total)
+        
+        # On multiplie par le facteur pour avoir une croissance exponentielle
+        prochain_n = int(n * facteur_croissance)
+        
+        # Sécurité : on force une augmentation d'au moins 2 à chaque étape
+        # Cela évite les boucles infinies au début (ex: int(2 * 1.1) = 2)
+        if prochain_n < n + 2:
+            n += 2
+        else:
+            n = prochain_n
+
+    print("checkpoints list:  ", checkpoints)
+
+    if not checkpoints or checkpoints[-1] != n_total:
+        checkpoints.append(n_total) 
 
     corr_correct = []
     corr_best = []
@@ -452,10 +464,9 @@ def find_min_traces(traces, plaintexts, known_key=KNOWN_KEY, attack_fn=None):
     for n in checkpoints:
         t_sub = traces[:n] #traces until n
         p_sub = plaintexts[:n] #traces until n 
-    
+        print("attack with " + n + " traces")
         # Pass known_key down
         best_ks, max_cs, ranks, expected_cs = attack_fn(t_sub, p_sub, known_key=known_key)
-        
         corr_correct.append(np.mean(expected_cs))
         corr_best.append(np.mean(max_cs))
         ranks_history.append(np.mean(ranks)) 
