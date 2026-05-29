@@ -572,7 +572,22 @@ void AES128_set_config(uint8_t config)
     memcpy(sbox_ccm,  sbox_ref, 256);
     initialized = 1;
   }
+
+  /* --- Routing dynamique par LFSR (bits 0 et 1 de config) --- */
   active_roundkey = (config & 0x01) ? RoundKey_ccm : RoundKey_sram;
   active_sbox     = (config & 0x02) ? sbox_ccm     : sbox_sram;
+
+  /* --- Overrides statiques (compilés dans le binaire) ---
+   *  USE_CCM_KEY  : RoundKey toujours en CCM  (override bit 0)
+   *  USE_CCM_SBOX : SBOX toujours en CCM       (override bit 1)
+   *  USE_CCM      : RoundKey + SBOX en CCM     (override bits 0 et 1)
+   * Ces overrides s'ajoutent au routing LFSR et garantissent
+   * qu'une zone précise reste en CCM quelle que soit la valeur du LFSR. */
+#if defined(USE_CCM_KEY) || defined(USE_CCM)
+  active_roundkey = RoundKey_ccm;
+#endif
+#if defined(USE_CCM_SBOX) || defined(USE_CCM)
+  active_sbox = sbox_ccm;
+#endif
 }
 #endif

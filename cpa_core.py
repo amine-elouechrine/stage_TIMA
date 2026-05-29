@@ -55,45 +55,71 @@ def hamming_weight(x):
 # Compilation firmware
 # ─────────────────────────────────────────────────────────
 def compile_firmware(platform, extra_opts=""):
-    """Compile le firmware pour la plateforme donnée avec nettoyage forcé."""
-    
-    # 1. Nettoyage obligatoire pour forcer la recompilation 
+    """Compile le firmware pour la plateforme donnée avec nettoyage forcé.
+
+    extra_opts peut contenir plusieurs tokens séparés par des espaces :
+      - Les mots simples (ex: USE_SPATIAL_HIDING, USE_CCM_KEY) deviennent des -DFLAG
+        individuels passés via CFLAGS.
+      - Les arguments déjà préfixés par -D ou -Wl sont transmis tels quels.
+    Cela contourne la limitation du Makefile qui ne fait qu'un seul
+    'CFLAGS += -D$(EXTRA_OPTS)' et ne gère donc qu'un seul define à la fois.
+    """
+
+    # 1. Nettoyage obligatoire pour forcer la recompilation
     clean_cmd = f"make PLATFORM={platform} clean"
     print(f"\n[COMPILE] Nettoyage : {clean_cmd}")
     subprocess.run(clean_cmd, shell=True, cwd=FW_PATH, capture_output=True)
 
-    # 2. Construction de la commande (On utilise EXTRA_OPTS, SANS le -D)
+    # 2. Construction de la commande de build
     cmd = f"make PLATFORM={platform} CRYPTO_TARGET=TINYAES128C SS_VER=SS_VER_2_1"
-    
+
     if extra_opts:
-        # Le Makefile de CW ajoutera le -D tout seul sur les mots simples,
-        # mais on peut aussi y glisser des arguments g++ ou linker.
-        opts = extra_opts
+        cflags_parts = []   # flags preprocesseur : -DFOO
+        ldflags_parts = []  # flags linker       : -Wl,...
+
+        for token in extra_opts.split():
+            if token.startswith('-Wl') or token.startswith('-l'):
+                ldflags_parts.append(token)
+            elif token.startswith('-D'):
+                # déjà préfixé (-DFOO), on le garde tel quel dans CFLAGS
+                cflags_parts.append(token)
+            else:
+                # mot simple (USE_SPATIAL_HIDING, USE_CCM_KEY…) → ajoute -D
+                cflags_parts.append(f"-D{token}")
+
+        # Linker stack CCM selon la plateforme
         if "USE_CCM_STACK" in extra_opts:
             if platform == 'CW308_STM32F3':
-                opts += " -Wl,--defsym=_estack=0x10002000"
+                ldflags_parts.append("-Wl,--defsym=_estack=0x10002000")
             elif platform == 'CW308_STM32F4':
-                opts += " -Wl,--defsym=_estack=0x10010000"
-                
-        cmd += f' EXTRA_OPTS="{opts}"' 
-        
+                ldflags_parts.append("-Wl,--defsym=_estack=0x10010000")
+
+        # CFLAGS_LAST est appendé à CFLAGS par Makefile.inc (ligne 187)
+        # C'est le hook officiel pour injecter des flags supplémentaires.
+        if cflags_parts:
+            cmd += f' CFLAGS_LAST="{" ".join(cflags_parts)}"'
+        # Les flags linker sont injectés directement dans LDFLAGS
+        # (GNU make : une variable passée en CLI s'ajoute à celle du Makefile)
+        if ldflags_parts:
+            cmd += f' LDFLAGS_EXTRA="{" ".join(ldflags_parts)}"'
+
     cmd += " -j"
-    
+
     print(f"[COMPILE] Build : {cmd}")
     result = subprocess.run(cmd, shell=True, cwd=FW_PATH,
-                             capture_output=False, text=True)
-                             
+                            capture_output=False, text=True)
+
     if result.returncode != 0:
-        raise RuntimeError(f"Compilation échouée !")
+        raise RuntimeError("Compilation échouée !")
     print("[COMPILE] OK")
 
     
 # ─────────────────────────────────────────────────────────
 # Setup ChipWhisperer
 # ─────────────────────────────────────────────────────────
-def setup_scope(platform):
+def setup_scope(platform,sn=None):
     """Connecte et configure le scope CW avec des paramètres fixes."""
-    scope = cw.scope()
+    scope = cw.scope(sn=sn)
     target = cw.target(scope, cw.targets.SimpleSerial2)
     # default_setup() gère correctement tio1/tio2/hs2/clock pour F3 et F4
     scope.default_setup()
@@ -464,8 +490,7 @@ def find_min_traces(traces, plaintexts, known_key=KNOWN_KEY, attack_fn=None):
     for n in checkpoints:
         t_sub = traces[:n] #traces until n
         p_sub = plaintexts[:n] #traces until n 
-        print("attack with " + n + " traces")
-        # Pass known_key down
+        print("attack with " + str(n) + " traces")        # Pass known_key down
         best_ks, max_cs, ranks, expected_cs = attack_fn(t_sub, p_sub, known_key=known_key)
         corr_correct.append(np.mean(expected_cs))
         corr_best.append(np.mean(max_cs))
@@ -473,6 +498,130 @@ def find_min_traces(traces, plaintexts, known_key=KNOWN_KEY, attack_fn=None):
         
         if list(best_ks) == list(known_key) and found_at is None:
             found_at = n
+
+    return checkpoints, corr_correct, corr_best, found_at, ranks_history
+
+
+# ─────────────────────────────────────────────────────────
+# find_min_traces_streaming — Version mémoire-efficace
+# ─────────────────────────────────────────────────────────
+def find_min_traces_streaming(traces, plaintexts, known_key=KNOWN_KEY,
+                               attack_mode='CPA', batch_size=2000):
+    """
+    Version mémoire-efficace de find_min_traces utilisant des accumulateurs incrémentaux.
+    
+    Au lieu de recréer la matrice complète (n_traces × n_samples) à chaque checkpoint,
+    on ne traite que les NOUVELLES traces depuis le checkpoint précédent.
+    
+    Empreinte mémoire :
+      CPA : traces float32 (~1.6 GB pour 80k×5000) + accumulateurs ~200 MB
+      DPA : traces float32 (~1.6 GB pour 80k×5000) + accumulateurs ~330 MB
+    
+    Paramètres
+    ----------
+    attack_mode : 'CPA' ou 'DPA'
+    batch_size  : traces traitées par mini-lot (contrôle le pic mémoire)
+    """
+    # Conversion float32 : divise par 2 la mémoire des traces
+    traces_f32    = np.asarray(traces, dtype=np.float32)
+    plaintexts_u8 = np.asarray(plaintexts, dtype=np.uint8)
+    n_total, n_samples = traces_f32.shape
+    key_range = np.arange(256, dtype=np.uint8)
+
+    # ── Checkpoints (même logique que find_min_traces) ────
+    checkpoints, n = [], 2
+    while n <= n_total:
+        checkpoints.append(n)
+        nxt = int(n * 1.5)
+        n   = nxt if nxt >= n + 2 else n + 2
+    if not checkpoints or checkpoints[-1] != n_total:
+        checkpoints.append(n_total)
+    print("checkpoints list: ", checkpoints)
+
+    # ── Accumulateurs (16 octets × 256 hypothèses) ────────
+    if attack_mode == 'CPA':
+        # Pearson via sommes cumulées : sum_h, sum_h2, sum_ht, sum_t, sum_t2
+        sum_h  = np.zeros((16, 256), dtype=np.float64)
+        sum_h2 = np.zeros((16, 256), dtype=np.float64)
+        sum_ht = np.zeros((16, 256, n_samples), dtype=np.float64)  # ~163 MB
+        sum_t  = np.zeros((16, n_samples), dtype=np.float64)
+        sum_t2 = np.zeros((16, n_samples), dtype=np.float64)
+    else:  # DPA
+        # Différence de moyennes : sum_t0, sum_t1 et leurs compteurs
+        sum_t0  = np.zeros((16, 256, n_samples), dtype=np.float64)  # ~163 MB
+        sum_t1  = np.zeros((16, 256, n_samples), dtype=np.float64)  # ~163 MB
+        cnt0    = np.zeros((16, 256), dtype=np.int64)
+        cnt1    = np.zeros((16, 256), dtype=np.int64)
+
+    corr_correct, corr_best, ranks_history = [], [], []
+    found_at = None
+    prev_n   = 0
+
+    for cp in checkpoints:
+        # ── Mise à jour des accumulateurs (nouvelles traces seulement) ──
+        for start in range(prev_n, cp, batch_size):
+            end  = min(start + batch_size, cp)
+            t_b  = traces_f32[start:end].astype(np.float64)   # (B, n_samples)
+            pt_b = plaintexts_u8[start:end]                    # (B, 16)
+
+            for byte in range(16):
+                pt_byte = pt_b[:, byte]                        # (B,)
+                # Matrice d'hypothèses HW(SBOX[pt XOR k]) : (B, 256)
+                h = HW_TABLE[SBOX[pt_byte[:, None] ^ key_range[None, :]]].astype(np.float64)
+
+                if attack_mode == 'CPA':
+                    sum_h[byte]  += h.sum(axis=0)
+                    sum_h2[byte] += (h ** 2).sum(axis=0)
+                    sum_ht[byte] += h.T @ t_b              # (256, n_samples)
+                    sum_t[byte]  += t_b.sum(axis=0)
+                    sum_t2[byte] += (t_b ** 2).sum(axis=0)
+                else:  # DPA
+                    bit = (SBOX[pt_byte[:, None] ^ key_range[None, :]] >> TARGET_BIT) & 1
+                    # bit : (B, 256)
+                    for k in range(256):
+                        mask1 = bit[:, k].astype(bool)
+                        mask0 = ~mask1
+                        sum_t1[byte, k] += t_b[mask1].sum(axis=0)
+                        sum_t0[byte, k] += t_b[mask0].sum(axis=0)
+                        cnt1[byte, k]   += mask1.sum()
+                        cnt0[byte, k]   += mask0.sum()
+
+        # ── Calcul des métriques au checkpoint ────────────
+        n = cp
+        best_ks, max_cs, ranks, exp_cs = [], [], [], []
+
+        for byte in range(16):
+            if attack_mode == 'CPA':
+                num   = n * sum_ht[byte] - sum_h[byte, :, None] * sum_t[byte, None, :]
+                var_h = np.maximum(n * sum_h2[byte] - sum_h[byte] ** 2, 0)
+                var_t = np.maximum(n * sum_t2[byte] - sum_t[byte] ** 2, 0)
+                denom = np.sqrt(var_h[:, None]) * np.sqrt(var_t[None, :])
+                denom[denom < 1e-10] = 1e-10
+                corr_mat = np.abs(num / denom)             # (256, n_samples)
+            else:  # DPA
+                c0 = np.where(cnt0[byte, :, None] > 0,
+                              sum_t0[byte] / np.maximum(cnt0[byte, :, None], 1), 0.0)
+                c1 = np.where(cnt1[byte, :, None] > 0,
+                              sum_t1[byte] / np.maximum(cnt1[byte, :, None], 1), 0.0)
+                corr_mat = np.abs(c1 - c0)                 # (256, n_samples)
+
+            max_per_key = corr_mat.max(axis=1)
+            bk  = int(np.argmax(max_per_key))
+            mc  = float(max_per_key[bk])
+            ec, rk = _rank_and_expected(max_per_key, known_key[byte])
+
+            best_ks.append(bk); max_cs.append(mc)
+            ranks.append(rk);   exp_cs.append(ec)
+
+        corr_correct.append(np.mean(exp_cs))
+        corr_best.append(np.mean(max_cs))
+        ranks_history.append(np.mean(ranks))
+
+        if list(best_ks) == list(known_key) and found_at is None:
+            found_at = n
+
+        print(f"attack with {n} traces")
+        prev_n = cp
 
     return checkpoints, corr_correct, corr_best, found_at, ranks_history
 

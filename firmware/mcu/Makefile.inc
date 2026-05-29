@@ -283,6 +283,8 @@ LDFLAGS += $(MATH_LIB)
 LDFLAGS += $(PRINTF_LIB) $(SCANF_LIB)
 LDFLAGS += -Wl,--print-memory-usage
 #LDFLAGS += -T linker_script.x
+# Extra linker flags that can be injected from the command line (e.g. --defsym=_estack=...)
+LDFLAGS += $(LDFLAGS_EXTRA)
 
 
 

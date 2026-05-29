@@ -58,14 +58,20 @@ uint8_t get_key(uint8_t* k, uint8_t len)
 uint8_t get_pt(uint8_t* pt, uint8_t len)
 {
 #ifdef USE_SPATIAL_HIDING
-    // 1. Random 3-bit config (0..7)
+    // 1. Random 3-bit config (0..7) via LFSR
     uint8_t config = prng() & 0x07;
-    // 2. Route active pointers to SRAM or CCM
+    // 2. Route RoundKey + SBOX vers SRAM ou CCM (+ overrides statiques dans AES128_set_config)
     AES128_set_config(config);
     // 3. Re-expand key into the selected buffer
     aes_indep_key(master_key);
-    // 4. Select active state buffer
+    // 4. Select active state buffer (LFSR bit 2 = routing dynamique)
     uint8_t* active_state = (config & 0x04) ? state_ccm : state_sram;
+    /* Override statique :
+     *  USE_CCM       : state toujours en CCM (tout le contexte AES en CCM)
+     *  USE_CCM_STACK : state en CCM + stack déplacée en CCM via _estack */
+#if defined(USE_CCM) || defined(USE_CCM_STACK)
+    active_state = state_ccm;
+#endif
     memcpy(active_state, pt, 16);
 
     aes_indep_enc_pretrigger(active_state);
